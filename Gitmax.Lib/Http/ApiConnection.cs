@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,7 +58,7 @@ namespace Gitmax.Lib.Http
             if (!responseMessage.IsSuccessStatusCode && throwOnFailure) {
                 // TODO: does GitHub always return a response?
                 var apiResponse = JsonConvert.DeserializeObject<ErrorResponse>(content);
-                throw new ApiErrorException(apiResponse);
+                throw new ApiErrorException(responseMessage.StatusCode, apiResponse);
             }
 
             var headers = responseMessage.Headers.ToDictionary(kvp => kvp.Key, kvp => string.Join(";", kvp.Value));
