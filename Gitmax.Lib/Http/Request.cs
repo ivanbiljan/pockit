@@ -35,5 +35,6 @@ namespace Gitmax.Lib.Http
         public Uri Uri { get; }
         public object Body { get; }
         public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
+        public IDictionary<string, string> PathParameters { get; set; } = new Dictionary<string, string>();
     }
 }

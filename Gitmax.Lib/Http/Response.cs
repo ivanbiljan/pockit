@@ -19,4 +19,14 @@ namespace Gitmax.Lib.Http
         public HttpStatusCode StatusCode { get; }
         public IDictionary<string, string> Headers { get; }
     }
+
+    public sealed class ApiResponse<T> {
+        public ApiResponse(Response response, T resource) {
+            Response = response;
+            Resource = resource;
+        }
+
+        public T Resource { get; }
+        public Response Response { get; }
+    }
 }

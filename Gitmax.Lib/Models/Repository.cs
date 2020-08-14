@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Gitmax.Lib.Models
 {
-    public sealed class Repository
-    {
+    public sealed class Repository { 
 
     }
 }
