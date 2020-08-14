@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	tools:showIn="@layout/activity_main"
+	android:minWidth="25px"
+	android:minHeight="25px">
+
+<!--	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:text="Hello World!"
+		android:id="@+id/textView1"
+		android:layout_toLeftOf="@id/textView1" />-->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Welcome"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="100px"
+		android:textSize="100px"/>
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="250px"
+		android:layout_marginHorizontal="20px"
+		android:hint="Username"/>
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="350px"
+		android:layout_marginHorizontal="20px"
+		android:password="true"
+		android:hint="Password"/>
+	<Button
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_marginHorizontal="20px"
+		android:layout_marginTop="450px"
+		android:text="SIGN IN"/>
+
+
+</RelativeLayout>
