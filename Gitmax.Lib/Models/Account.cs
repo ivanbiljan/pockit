@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿#nullable enable
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,5 +36,17 @@ namespace Gitmax.Lib.Models {
 
         [JsonProperty("type")]
         public AccountType Type { get; private set; }
+
+        [JsonProperty("plan", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public GitHubPlan? Plan { get; private set; }
+
+        [JsonProperty("two_factor_authentication", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool? IsTwoFactorAuthenticationEnabled { get; private set; }
+
+        [JsonProperty("total_private_repos", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public int? TotalPrivateReposCount { get; private set; }
+
+        [JsonProperty("owned_private_repos", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public int? OwnedPrivateReposCount { get; private set; }
     }
 }
