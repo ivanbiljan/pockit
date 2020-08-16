@@ -38,49 +38,55 @@ namespace Gitmax.Lib.Http
         }
 
         public async Task<T> GetAsync<T>(Uri uri) {
-            var request = CreateRequest(HttpMethod.Get, uri);
-            var response = await GetResponseAsync(request);
+            //var request = CreateRequest(HttpMethod.Get, uri);
+            var response = await GetResponseAsync(HttpMethod.Get, uri, null, null, null);
             return DeserializeObject<T>(response);
         }
 
         private static T DeserializeObject<T>(Response response) {
             if (!response.ContentType.Equals("application/json", StringComparison.InvariantCultureIgnoreCase)) {
-                return (T) typeof(T).GetDefaultValue();
+                return (T)typeof(T).GetDefaultValue();
             }
 
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
 
-        private static Request CreateRequest(HttpMethod httpMethod, Uri uri, object? body = null, IDictionary<string, string>? pathParameters = null, IDictionary<string, string>? headers = null) {
-            return new Request(httpMethod, uri, body) {
-                PathParameters = pathParameters ?? new Dictionary<string, string>(),
-                Headers = headers ?? new Dictionary<string, string>()
-            };
-        }
+        //private static Request CreateRequest(HttpMethod httpMethod, Uri uri, object? body = null, IDictionary<string, string>? pathParameters = null, IDictionary<string, string>? headers = null) {
+        //    return new Request(httpMethod, uri, body) {
+        //        PathParameters = pathParameters ?? new Dictionary<string, string>(),
+        //        Headers = headers ?? new Dictionary<string, string>()
+        //    };
+        //}
 
-        private async Task<Response> GetResponseAsync(Request request, bool throwOnFailure = false) {
+        private async Task<Response> GetResponseAsync(HttpMethod httpMethod, Uri uri, object? body, IDictionary<string, string>? pathParameters, IDictionary<string, string>? headers, bool throwOnFailure = false) {
             var queryParameters = new Dictionary<string, string>();
-            var existingParameters = HttpUtility.ParseQueryString(request.Uri.Query);
+            var existingParameters = HttpUtility.ParseQueryString(uri.Query);
             for (var i = 0; i < existingParameters.Count; ++i) {
                 queryParameters.Add(existingParameters.GetKey(i), existingParameters.Get(i));
             }
 
-            foreach (var (param, value) in request.PathParameters) {
-                queryParameters[param] = value; // Override any existing parameters
+            if (pathParameters != null) {
+                foreach ((string param, string value) in pathParameters) {
+                    queryParameters[param] = value; // Override any existing parameters
+                }
             }
 
-            var uriBuilder = new UriBuilder(request.Uri) { Query = string.Join("&", queryParameters.Select(kvp => $"{kvp.Key}={kvp.Value}")) };
-            var requestMessage = new HttpRequestMessage(request.HttpMethod, uriBuilder.Uri);
-            foreach (var (header, value) in request.Headers) {
-                requestMessage.Headers.Add(header, value);
+            var uriBuilder = new UriBuilder(uri) { Query = string.Join("&", queryParameters.Select(kvp => $"{kvp.Key}={kvp.Value}")) };
+            var requestMessage = new HttpRequestMessage(httpMethod, uri);
+
+            if (headers != null) {
+                foreach ((string header, string value) in headers) {
+                    requestMessage.Headers.Add(header, value);
+                }
             }
 
-            if (request.Body != null) {
-                requestMessage.Content = request.Body switch
+            if (body != null) {
+                requestMessage.Content = body switch
                 {
                     Stream stream => new StreamContent(stream),
-                    object obj => new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json"),
-                    _ => new StringContent(request.Body.ToString(), Encoding.UTF8, "applicaton/json")
+                    //object obj => new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json"),
+                    //_ => new StringContent(body.ToString(), Encoding.UTF8, "applicaton/json")
+                    _ => new StringContent(body as string ?? JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json")
                 };
             }
 
@@ -93,8 +99,8 @@ namespace Gitmax.Lib.Http
                 throw new ApiErrorException(responseMessage.StatusCode, apiResponse);
             }
 
-            var headers = responseMessage.Headers.ToDictionary(kvp => kvp.Key, kvp => string.Join(";", kvp.Value));
-            var response = new Response(responseMessage.StatusCode, headers["Content-Type"], content, headers);
+            var responseHeaders = responseMessage.Headers.ToDictionary(kvp => kvp.Key, kvp => string.Join(";", kvp.Value));
+            var response = new Response(responseMessage.StatusCode, responseHeaders["Content-Type"], content, responseHeaders);
             return response;
         }
     }
