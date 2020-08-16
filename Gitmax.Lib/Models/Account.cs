@@ -32,7 +32,7 @@ namespace Gitmax.Lib.Models {
         [JsonProperty("following")]
         public int FollowingCount { get; private set; }
 
-        //[JsonProperty("type")]
-        //public AccountType Type { get; private set; }
+        [JsonProperty("type")]
+        public AccountType Type { get; private set; }
     }
 }
