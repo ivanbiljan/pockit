@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gitmax.Lib.Modules {
+namespace Gitmax.Lib.Models {
     public sealed class GitHubPlan {
         [JsonProperty("name")]
         public string Name { get; private set; }
