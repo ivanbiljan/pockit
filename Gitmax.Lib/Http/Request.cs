@@ -23,7 +23,7 @@ namespace Gitmax.Lib.Http
         /// <param name="httpMethod">The HTTP method.</param>
         /// <param name="body"></param>
         /// <param name="headers"></param>
-        public Request(HttpMethod httpMethod, Uri uri, object body)
+        public Request(HttpMethod httpMethod, Uri uri, object? body)
         {
             HttpMethod = httpMethod;
             Uri = uri;
@@ -33,7 +33,7 @@ namespace Gitmax.Lib.Http
 
         public HttpMethod HttpMethod { get; }
         public Uri Uri { get; }
-        public object Body { get; }
+        public object? Body { get; }
         public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
         public IDictionary<string, string> PathParameters { get; set; } = new Dictionary<string, string>();
     }
