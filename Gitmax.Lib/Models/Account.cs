@@ -2,6 +2,7 @@
 
 using Newtonsoft.Json;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,6 +14,7 @@ namespace Gitmax.Lib.Models {
         [JsonProperty("node_id")]
         public string NodeId { get; private set; }
 
+        [return: NotNull]
         [JsonProperty("login")]
         public string Username { get; private set; }
 
