@@ -1,0 +1,4 @@
+﻿<resources>
+  <item type="id" name="btnSignIn"/>
+  <item type="id" name="webview"/>
+</resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<!--<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
@@ -10,13 +10,13 @@
 	android:minWidth="25px"
 	android:minHeight="25px">
 
-<!--	<TextView
+--><!--	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
 		android:text="Hello World!"
 		android:id="@+id/textView1"
-		android:layout_toLeftOf="@id/textView1" />-->
+		android:layout_toLeftOf="@id/textView1" />--><!--
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -37,13 +37,6 @@
 		android:layout_marginHorizontal="20px"
 		android:password="true"
 		android:hint="Password"/>
-	<Button
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
-		android:layout_marginHorizontal="20px"
-		android:layout_marginTop="450px"
-		android:text="SIGN IN"/>
 
 
-</RelativeLayout>
+</RelativeLayout>-->

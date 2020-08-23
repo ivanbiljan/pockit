@@ -361,4 +361,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Secrets
+google-services.json
+oauth.json
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,xamarinstudio

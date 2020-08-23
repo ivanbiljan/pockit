@@ -14,7 +14,6 @@ namespace Gitmax.Lib.Models {
         [JsonProperty("node_id")]
         public string NodeId { get; private set; }
 
-        [return: NotNull]
         [JsonProperty("login")]
         public string Username { get; private set; }
 

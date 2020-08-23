@@ -18,7 +18,7 @@ namespace Gitmax.Lib.Http
 {
     public sealed class ApiConnection {
         private static readonly HttpClient HttpClient;
-        private readonly string _authToken;
+        private readonly string? _authToken;
 
         static ApiConnection() {
             HttpClient = new HttpClient {
@@ -33,7 +33,7 @@ namespace Gitmax.Lib.Http
             };
         }
 
-        public ApiConnection(string authenticationToken) {
+        public ApiConnection(string? authenticationToken) {
             _authToken = authenticationToken;
         }
 
@@ -72,7 +72,7 @@ namespace Gitmax.Lib.Http
             }
 
             var uriBuilder = new UriBuilder(uri) { Query = string.Join("&", queryParameters.Select(kvp => $"{kvp.Key}={kvp.Value}")) };
-            var requestMessage = new HttpRequestMessage(httpMethod, uri);
+            var requestMessage = new HttpRequestMessage(httpMethod, uriBuilder.Uri);
 
             if (headers != null) {
                 foreach ((string header, string value) in headers) {
@@ -90,7 +90,7 @@ namespace Gitmax.Lib.Http
                 };
             }
 
-            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Token", _authToken);
+            //requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Token", _authToken);
             var responseMessage = await HttpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead);
             var content = await responseMessage.Content.ReadAsStringAsync();
             if (!responseMessage.IsSuccessStatusCode && throwOnFailure) {

@@ -1,6 +1,7 @@
 ﻿using Gitmax.Lib.Http;
 using Gitmax.Lib.Modules;
 using System;
+using System.Resources;
 
 namespace Gitmax.Lib
 {
