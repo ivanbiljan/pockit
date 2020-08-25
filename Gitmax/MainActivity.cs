@@ -7,18 +7,26 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Essentials;
+using Java.Util.Prefs;
 
 namespace Gitmax {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity {
+    public sealed class MainActivity : AppCompatActivity {
+        internal const int LoginRequestCode = 666;
+
         protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
-            if (true) {
-                StartActivityForResult(new Intent(this, typeof(LoginActivity)), 666);
+
+            var preferences = GetPreferences(FileCreationMode.Private);
+            var accessToken = preferences.GetString("access_token", null);
+            if (accessToken is null) {
+                StartActivityForResult(new Intent(this, typeof(LoginActivity)), LoginRequestCode);
+            } else {
+                // TODO: Redirect to user profile
             }
+
+            SetContentView(Resource.Layout.activity_main);
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -42,15 +50,21 @@ namespace Gitmax {
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data) {
-            Toast.MakeText(this.ApplicationContext, "Token: " + data.GetStringExtra("result"), ToastLength.Long).Show();
-            System.Diagnostics.Debug.WriteLine("ActivityResult invoked.");
+            if (requestCode != LoginRequestCode || resultCode != Result.Ok) {
+                // TODO: Do something
+            }
+
+            var preferences = GetPreferences(FileCreationMode.Private);
+            var editor = preferences.Edit();
+            editor.PutString("access_token", data.GetStringExtra("result"));
+            editor.Apply();
             base.OnActivityResult(requestCode, resultCode, data);
         }
 
         private void FabOnClick(object sender, EventArgs eventArgs) {
             View view = (View)sender;
             Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+                .SetAction("Action", (View.IOnClickListener)null).Show();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults) {
