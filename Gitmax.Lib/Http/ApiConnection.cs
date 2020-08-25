@@ -22,7 +22,7 @@ namespace Gitmax.Lib.Http
 
         static ApiConnection() {
             HttpClient = new HttpClient {
-                BaseAddress = new Uri("https://api.github.com"),
+                BaseAddress = new Uri("https://api.github.com/"),
                 DefaultRequestHeaders = {
                     Accept = {new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json")},
                     CacheControl = {
@@ -45,7 +45,7 @@ namespace Gitmax.Lib.Http
 
         private static T DeserializeObject<T>(Response response) {
             if (!response.ContentType.Equals("application/json", StringComparison.InvariantCultureIgnoreCase)) {
-                return (T)typeof(T).GetDefaultValue();
+                return (T) typeof(T).GetDefaultValue();
             }
 
             return JsonConvert.DeserializeObject<T>(response.Content);
@@ -58,7 +58,7 @@ namespace Gitmax.Lib.Http
         //    };
         //}
 
-        private async Task<Response> GetResponseAsync(HttpMethod httpMethod, Uri uri, object? body, IDictionary<string, string>? pathParameters, IDictionary<string, string>? headers, bool throwOnFailure = false) {
+        public async Task<Response> GetResponseAsync(HttpMethod httpMethod, Uri uri, object? body, IDictionary<string, string>? pathParameters, IDictionary<string, string>? headers, bool throwOnFailure = false) {
             var queryParameters = new Dictionary<string, string>();
             var existingParameters = HttpUtility.ParseQueryString(uri.Query);
             for (var i = 0; i < existingParameters.Count; ++i) {
@@ -90,7 +90,7 @@ namespace Gitmax.Lib.Http
                 };
             }
 
-            //requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Token", _authToken);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Token", _authToken);
             var responseMessage = await HttpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead);
             var content = await responseMessage.Content.ReadAsStringAsync();
             if (!responseMessage.IsSuccessStatusCode && throwOnFailure) {
