@@ -38,7 +38,6 @@ namespace Gitmax.Lib.Http
         }
 
         public async Task<T> GetAsync<T>(Uri uri) {
-            //var request = CreateRequest(HttpMethod.Get, uri);
             var response = await GetResponseAsync(HttpMethod.Get, uri, null, null, null);
             return DeserializeObject<T>(response);
         }
@@ -50,13 +49,6 @@ namespace Gitmax.Lib.Http
 
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
-
-        //private static Request CreateRequest(HttpMethod httpMethod, Uri uri, object? body = null, IDictionary<string, string>? pathParameters = null, IDictionary<string, string>? headers = null) {
-        //    return new Request(httpMethod, uri, body) {
-        //        PathParameters = pathParameters ?? new Dictionary<string, string>(),
-        //        Headers = headers ?? new Dictionary<string, string>()
-        //    };
-        //}
 
         public async Task<Response> GetResponseAsync(HttpMethod httpMethod, Uri uri, object? body, IDictionary<string, string>? pathParameters, IDictionary<string, string>? headers, bool throwOnFailure = false) {
             var queryParameters = new Dictionary<string, string>();
@@ -84,8 +76,6 @@ namespace Gitmax.Lib.Http
                 requestMessage.Content = body switch
                 {
                     Stream stream => new StreamContent(stream),
-                    //object obj => new StringContent(JsonConvert.SerializeObject(request.Body), Encoding.UTF8, "application/json"),
-                    //_ => new StringContent(body.ToString(), Encoding.UTF8, "applicaton/json")
                     _ => new StringContent(body as string ?? JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json")
                 };
             }

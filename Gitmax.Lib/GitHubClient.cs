@@ -10,6 +10,7 @@ namespace Gitmax.Lib
 
         public GitHubClient(string authenticationToken) {
             var apiConnection = new ApiConnection(authenticationToken);
+
             _userModule = new Lazy<UserModule>(() => new UserModule(apiConnection));
         }
 

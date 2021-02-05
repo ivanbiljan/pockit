@@ -15,24 +15,6 @@ namespace Gitmax {
         internal const int LoginRequestCode = 666;
 
         protected override void OnCreate(Bundle savedInstanceState) {
-            base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-
-            var preferences = GetPreferences(FileCreationMode.Private);
-            var accessToken = preferences.GetString("access_token", null);
-            if (accessToken is null) {
-                StartActivityForResult(new Intent(this, typeof(LoginActivity)), LoginRequestCode);
-            } else {
-                // TODO: Redirect to user profile
-            }
-
-            SetContentView(Resource.Layout.activity_main);
-
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
-
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu) {

@@ -52,7 +52,11 @@ namespace Gitmax {
         }
 
         private void OnSignInClick(object sender, EventArgs e) {
-            _webView.LoadUrl("https://github.com/login/oauth/authorize?client_id=ab8ef61b50458d9a01db");
+            using var manifestStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Gitmax.oauth.json");
+            using var streamReader = new StreamReader(manifestStream);
+            var clientId = JObject.Parse(streamReader.ReadToEnd())["client_id"];
+
+            _webView.LoadUrl($"https://github.com/login/oauth/authorize?client_id={clientId}");
             SetContentView(_webView);
         }
     }
@@ -92,7 +96,7 @@ namespace Gitmax {
 
             string ExchangeAccessCodeForToken() {
                 // We're only creating 2 sockets throughout the lifetime of the app so we don't have to worry about
-                // socket exhaustion. This socket only opens if the user hasn't authenticated and immediately closes anyways
+                // socket exhaustion. This socket only opens if the user hasn't authenticated and immediately closes anyway
                 using var httpClient = new HttpClient();
                 var uri = new Uri($"https://github.com/login/oauth/access_token?client_id={oauthSecrets["client_id"]}&client_secret={oauthSecrets["client_secret"]}&code={githubCode}");
                 var response = httpClient.PostAsync(uri, new StringContent(string.Empty)).GetAwaiter().GetResult();
