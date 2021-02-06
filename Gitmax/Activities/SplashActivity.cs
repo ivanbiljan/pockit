@@ -15,7 +15,7 @@ using Android.Nfc;
 
 namespace Gitmax.Activities
 {
-    [Activity(Theme = "@style/AppTheme.Splash", MainLauncher = true)]
+    [Activity(Theme = "@style/AppTheme.Splash", MainLauncher = true, NoHistory = true)]
     public sealed class SplashActivity : AppCompatActivity
     {
         /// <inheritdoc />
