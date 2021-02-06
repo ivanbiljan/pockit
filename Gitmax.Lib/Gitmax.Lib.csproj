@@ -5,6 +5,7 @@
     <AssemblyName>Gitmax.Lib</AssemblyName>
     <RootNamespace>Gitmax.Lib</RootNamespace>
     <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
