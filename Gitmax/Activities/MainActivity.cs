@@ -9,7 +9,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Util.Prefs;
 
-namespace Gitmax {
+namespace Gitmax.Activities {
     //[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public sealed class MainActivity : AppCompatActivity {
         protected override void OnCreate(Bundle savedInstanceState) {

@@ -26,19 +26,19 @@ namespace Gitmax.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public T Get<T>([CallerMemberName] string name = null)
+        public T Get<T>([CallerMemberName] string? name = null)
         {
             return (_propertyNameToValueMapping.TryGetValue(name, out var obj) && obj != null ? (T) obj : default)!;
         }
 
-        public void Set<T>(T value, [CallerMemberName] string name = null)
+        public void Set<T>(T value, [CallerMemberName] string? name = null)
         {
             if (EqualityComparer<T>.Default.Equals(Get<T>(name), value))
             {
                 return;
             }
 
-            _propertyNameToValueMapping[name] = value;
+            _propertyNameToValueMapping[name!] = value;
             OnPropertyChanged(name);
         }
     }
