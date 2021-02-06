@@ -80,7 +80,6 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <EmbeddedResource Include="oauth.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
