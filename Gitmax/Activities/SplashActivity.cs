@@ -33,6 +33,7 @@ namespace Gitmax.Activities
             if (preferences.GetString("access_token", null) is null)
             {
                 // Launch LoginActivity
+                StartActivity(new Intent(this, typeof(LoginActivity)));
             }
             else
             {
