@@ -13,6 +13,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Pockit.Core.Constants;
+using Pockit.Core.Services.Authorization;
 using Pockit.Helpers;
 using Xamarin.Essentials;
 
@@ -51,34 +52,13 @@ namespace Pockit.Activities
 
             Log.Debug(nameof(LoginActivity), "Initiating webflow authentication");
 
-            var expectedState = StringHelpers.GetRandomString();
-            var result = await WebAuthenticator.AuthenticateAsync(
-                new Uri(OAuthWebFlowConstants.GetAuthorizationUriString(username, expectedState)),
-                new Uri(OAuthWebFlowConstants.CallbackUri));
-            var code = result.Properties["code"];
-            var returnedState = result.Properties["state"];
+            var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>();
+            System.Diagnostics.Debug.Assert(authorizationService != null, "authorizationService != null");
 
-            System.Diagnostics.Debug.Assert(code != null, "code != null");
-            System.Diagnostics.Debug.Assert(returnedState != null, "returnedState != null");
+            var state = StringHelpers.GetRandomString();
+            await authorizationService.RequestUserIdentity(state, username);
 
-            if (returnedState != expectedState) {
-                Log.Debug(nameof(LoginActivity), "Aborting authentication: states do not match");
-                Finish();
-            }
-
-            Log.Debug(nameof(LoginActivity), "Exchanging GitHub code for an access token");
-            var httpClient = new System.Net.Http.HttpClient(new SocketsHttpHandler());
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            var oauthJson = JsonDocument.Parse(await System.IO.File.ReadAllTextAsync("oauth.json"));
-
-            var responseMessage = await httpClient.PostAsync(
-                new Uri(
-                    $"https://github.com/login/oauth/access_token?client_id={oauthJson.RootElement.GetProperty("client_id").GetString()}&client_secret={oauthJson.RootElement.GetProperty("client_secret").GetString()}"),
-                new ReadOnlyMemoryContent(ReadOnlyMemory<byte>.Empty));
-            var contentDom = JsonDocument.Parse(await responseMessage.Content.ReadAsStringAsync());
-
-            Log.Debug(nameof(LoginActivity),
-                $"Authentication complete. Token: {contentDom.RootElement.GetProperty("access_token").GetString()}");
+            Log.Debug(nameof(LoginActivity), $"Authentication complete");
         }
     }
 
