@@ -5,7 +5,7 @@ namespace Pockit.Helpers {
     {
         public static string GetRandomString(int length = 26)
         {
-            string CharacterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!*()";
+            const string characterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!*()";
 
             var randomNumberBuffer = new byte[1];
             var rngProvider = new RNGCryptoServiceProvider();
@@ -16,9 +16,9 @@ namespace Pockit.Helpers {
                 do
                 {
                     rngProvider.GetBytes(randomNumberBuffer);
-                } while (!(randomNumberBuffer[0] < CharacterPool.Length * (byte.MaxValue / CharacterPool.Length)));
+                } while (!(randomNumberBuffer[0] < characterPool.Length * (byte.MaxValue / characterPool.Length)));
 
-                result[i] = CharacterPool[randomNumberBuffer[0] % CharacterPool.Length];
+                result[i] = characterPool[randomNumberBuffer[0] % characterPool.Length];
             }
 
             return new string(result);
