@@ -3481,7 +3481,7 @@ namespace Gitmax
 			public const int browser_actions_menu_view = 2131230762;
 			
 			// aapt resource value: 0x7F08002B
-			public const int btnSignIn = 2131230763;
+			public const int btnAuthorize = 2131230763;
 			
 			// aapt resource value: 0x7F08002C
 			public const int buttonPanel = 2131230764;
@@ -3952,25 +3952,25 @@ namespace Gitmax
 			public const int transition_transform = 2131230914;
 			
 			// aapt resource value: 0x7F0800C3
-			public const int uniform = 2131230915;
+			public const int txtLoginUsername = 2131230915;
 			
 			// aapt resource value: 0x7F0800C4
-			public const int unlabeled = 2131230916;
+			public const int uniform = 2131230916;
 			
 			// aapt resource value: 0x7F0800C5
-			public const int up = 2131230917;
+			public const int unlabeled = 2131230917;
 			
 			// aapt resource value: 0x7F0800C6
-			public const int useLogo = 2131230918;
+			public const int up = 2131230918;
 			
 			// aapt resource value: 0x7F0800C7
-			public const int view_offset_helper = 2131230919;
+			public const int useLogo = 2131230919;
 			
 			// aapt resource value: 0x7F0800C8
-			public const int visible = 2131230920;
+			public const int view_offset_helper = 2131230920;
 			
 			// aapt resource value: 0x7F0800C9
-			public const int webview = 2131230921;
+			public const int visible = 2131230921;
 			
 			// aapt resource value: 0x7F0800CA
 			public const int wide = 2131230922;
