@@ -1,17 +1,6 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using Javax.Security.Auth;
+﻿using System.Security.Cryptography;
 
-namespace Gitmax.Helpers {
+namespace Pockit.Helpers {
     public static class StringHelpers 
     {
         public static string GetRandomString(int length = 26)

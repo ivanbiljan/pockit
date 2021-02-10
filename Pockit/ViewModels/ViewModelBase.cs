@@ -1,18 +1,9 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using Gitmax.Annotations;
+using Pockit.Properties;
 
-namespace Gitmax.ViewModels 
+namespace Pockit.ViewModels 
 {
     public sealed class ViewModelBase : INotifyPropertyChanged
     {

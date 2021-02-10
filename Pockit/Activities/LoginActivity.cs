@@ -1,27 +1,22 @@
 ﻿#nullable enable
 
+using System;
+using System.Net.Http;
+using System.Text.Json;
 using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
 using Android.Content.PM;
+using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Util;
-using Gitmax.Constants;
-using Gitmax.Helpers;
-using Java.IO;
+using Android.Views;
+using Android.Widget;
+using Pockit.Constants;
+using Pockit.Helpers;
 using Xamarin.Essentials;
 
-namespace Gitmax.Activities
+namespace Pockit.Activities
 {
     [Activity]
     public sealed class LoginActivity : AppCompatActivity
@@ -93,6 +88,5 @@ namespace Gitmax.Activities
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, DataScheme = OAuthWebFlowConstants.CallbackScheme)]
     public sealed class WebAuthenticationCallbackActivity : WebAuthenticatorCallbackActivity
     {
-
     }
 }

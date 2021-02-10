@@ -1,15 +1,9 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.OS;
+﻿using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
-using Android.Widget;
-using Java.Util.Prefs;
 
-namespace Gitmax.Activities {
+namespace Pockit.Activities {
     //[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public sealed class MainActivity : AppCompatActivity {
         protected override void OnCreate(Bundle savedInstanceState) {
