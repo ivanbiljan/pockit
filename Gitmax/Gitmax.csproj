@@ -150,12 +150,6 @@
     <AndroidResource Include="Resources\values\ids.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gitmax.Lib\Gitmax.Lib.csproj">
-      <Project>{297d37df-0f36-4712-8d70-48f11939b8dd}</Project>
-      <Name>Gitmax.Lib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Views\" />
   </ItemGroup>
