@@ -4,6 +4,8 @@ using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Util;
+using Microsoft.Extensions.DependencyInjection;
+using Pockit.Core.Services.Authorization;
 
 namespace Pockit.Activities
 {
@@ -15,6 +17,11 @@ namespace Pockit.Activities
         {
             base.OnCreate(savedInstanceState, persistentState);
             Log.Debug(nameof(SplashActivity), "SplashActivity.OnCreate");
+
+            var serviceCollection = new ServiceCollection()
+                .AddSingleton<IAuthorizationService, AuthorizationService>();
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            ServiceLocator.SetServiceProvider(serviceProvider);
         }
 
         /// <inheritdoc />

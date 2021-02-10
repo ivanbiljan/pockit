@@ -74,6 +74,9 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\..\..\..\Junk\NuGet Packages\microsoft.extensions.dependencyinjection\5.0.0\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -86,14 +89,10 @@
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Assembly.cs" />
-    <Compile Include="Constants\GitHubApiEndpoints.cs" />
-    <Compile Include="Constants\OAuthWebFlowConstants.cs" />
-    <Compile Include="Exceptions\MaliciousAuthorizationRequestException.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="IGitHubApi.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Services\Authorization\AuthorizationService.cs" />
-    <Compile Include="Services\Authorization\IAuthorizationService.cs" />
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <EmbeddedResource Include="oauth.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -133,6 +132,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>5.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Refit">
       <Version>6.0.1</Version>
     </PackageReference>
@@ -175,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\round_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pockit.Core\Pockit.Core.csproj">
+      <Project>{2e80eb52-130c-47db-b5e3-335612e5a2bc}</Project>
+      <Name>Pockit.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

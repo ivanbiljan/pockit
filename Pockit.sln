@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit", "Pockit\Pockit.csproj", "{D7108CA4-A07A-4B4B-89AD-F3EFAA6F42A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit.Functions", "Pockit.Functions\Pockit.Functions.csproj", "{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pockit.Functions", "Pockit.Functions\Pockit.Functions.csproj", "{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit.Core", "Pockit.Core\Pockit.Core.csproj", "{2E80EB52-130C-47DB-B5E3-335612E5A2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

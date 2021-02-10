@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Pockit.Functions;
-using Pockit.Services.Authorization;
+using Pockit.Core.Services.Authorization;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 

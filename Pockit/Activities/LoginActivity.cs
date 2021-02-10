@@ -12,7 +12,7 @@ using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Pockit.Constants;
+using Pockit.Core.Constants;
 using Pockit.Helpers;
 using Xamarin.Essentials;
 
@@ -44,9 +44,8 @@ namespace Pockit.Activities
         private async void AuthorizeButton_Click(object sender, EventArgs e)
         {
             var username = FindViewById<EditText>(Resource.Id.txtLoginUsername)!.Text;
-            if (string.IsNullOrWhiteSpace(username))
-            {
-                Snackbar.Make((View) sender, "Invalid username", Snackbar.LengthShort).Show();
+            if (string.IsNullOrWhiteSpace(username)) {
+                Snackbar.Make((View)sender, "Invalid username", Snackbar.LengthShort).Show();
                 return;
             }
 
@@ -62,8 +61,7 @@ namespace Pockit.Activities
             System.Diagnostics.Debug.Assert(code != null, "code != null");
             System.Diagnostics.Debug.Assert(returnedState != null, "returnedState != null");
 
-            if (returnedState != expectedState)
-            {
+            if (returnedState != expectedState) {
                 Log.Debug(nameof(LoginActivity), "Aborting authentication: states do not match");
                 Finish();
             }

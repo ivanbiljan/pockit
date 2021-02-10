@@ -1,4 +1,5 @@
-﻿namespace Pockit.Constants {
+﻿namespace Pockit.Core.Constants 
+{
     internal static class GitHubApiEndpoints
     {
     }
