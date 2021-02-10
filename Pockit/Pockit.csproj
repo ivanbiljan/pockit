@@ -85,11 +85,15 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Assembly.cs" />
     <Compile Include="Constants\GitHubApiEndpoints.cs" />
     <Compile Include="Constants\OAuthWebFlowConstants.cs" />
+    <Compile Include="Exceptions\MaliciousAuthorizationRequestException.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="IGitHubApi.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Services\Authorization\AuthorizationService.cs" />
+    <Compile Include="Services\Authorization\IAuthorizationService.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <EmbeddedResource Include="oauth.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
