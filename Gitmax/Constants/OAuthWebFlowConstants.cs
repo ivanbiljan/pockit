@@ -9,11 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gitmax.Constants 
+namespace Gitmax.Constants
 {
     internal static class OAuthWebFlowConstants
     {
-        public const string CallbackUri = "gitmax://";
+        public const string CallbackScheme = "gitmax";
+        public static readonly string CallbackUri = $"{CallbackScheme}://";
+
         public static string GetAuthorizationUriString(string login, string state) =>
             $"https://github.com/login/oauth/authorize?login={login}&state={state}";
     }
