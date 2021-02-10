@@ -45,8 +45,9 @@ namespace Pockit.Activities
         private async void AuthorizeButton_Click(object sender, EventArgs e)
         {
             var username = FindViewById<EditText>(Resource.Id.txtLoginUsername)!.Text;
-            if (string.IsNullOrWhiteSpace(username)) {
-                Snackbar.Make((View)sender, "Invalid username", Snackbar.LengthShort).Show();
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                Snackbar.Make((View) sender, "Invalid username", Snackbar.LengthShort).Show();
                 return;
             }
 

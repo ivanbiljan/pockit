@@ -38,17 +38,6 @@ namespace Pockit.Activities
             {
                 // Redirect to main page
             }
-
-            //Task startupWork = new Task(SimulateStartup);
-            //startupWork.Start();
-        }
-
-        // Simulates background work that happens behind the splash screen
-        async void SimulateStartup() 
-        {
-            Log.Debug(nameof(SplashActivity), "Performing some startup work that takes a bit of time.");
-            await Task.Delay(8000); // Simulate a bit of startup work.
-            Log.Debug(nameof(SplashActivity), "Startup work is finished - starting MainActivity.");
         }
     }
 }
