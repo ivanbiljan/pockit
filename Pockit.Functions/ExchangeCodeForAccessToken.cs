@@ -1,26 +1,28 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Pockit.Core.DTOs;
 using Pockit.Core.Services.Authorization;
 
 namespace Pockit.Functions
 {
-    public sealed class ExchangeCodeForAccessToken
+    public sealed class GetTemporaryAccessCode
     {
         private readonly IAuthorizationService _authorizationService;
         
-        public ExchangeCodeForAccessToken(IAuthorizationService authorizationService)
+        public GetTemporaryAccessCode(IAuthorizationService authorizationService)
         {
             _authorizationService =
                 authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
         }
         
-        [FunctionName(nameof(ExchangeCodeForAccessToken))]
+        [FunctionName(nameof(GetTemporaryAccessCode))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest req,
@@ -41,9 +43,8 @@ namespace Pockit.Functions
             string code = req.Query["code"];
             string state = req.Query["state"];
 
-            await _authorizationService.ExchangeCodeForAccessToken(code, state);
-
-            return new OkObjectResult($"Redirected to {nameof(IAuthorizationService.ExchangeCodeForAccessToken)}");
+            var result = JsonSerializer.Serialize(new GetTemporaryCodeDTO(code, state));
+            return new OkObjectResult(result);
         }
     }
 }

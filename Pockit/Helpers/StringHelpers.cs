@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 
-namespace Pockit.Helpers {
+namespace Pockit.Helpers 
+{
     public static class StringHelpers 
     {
         public static string GetRandomString(int length = 26)

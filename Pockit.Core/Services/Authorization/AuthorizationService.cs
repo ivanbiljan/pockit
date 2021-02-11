@@ -32,7 +32,7 @@ namespace Pockit.Core.Services.Authorization
         {
             if (state != _state)
             {
-                throw new MaliciousAuthorizationRequestException("States do not match");
+                throw new MaliciousAuthorizationRequestException("States do not match. A third party created the request");
             }
             
             var httpClient = new HttpClient(new HttpClientHandler());
