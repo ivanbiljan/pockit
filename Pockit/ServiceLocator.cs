@@ -24,7 +24,7 @@ namespace Pockit
         {
             if (_serviceProvider is null)
             {
-                throw new ArgumentNullException(nameof(_serviceProvider));
+                throw new ArgumentNullException(nameof(_serviceProvider), $"You must configure the service provider via {nameof(ServiceLocator.SetServiceProvider)}");
             }
 
             return _serviceProvider.GetService(typeof(T)) as T;

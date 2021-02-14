@@ -4,48 +4,65 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Pockit.Core.Constants;
+using Pockit.Core.DTOs;
 using Pockit.Core.Exceptions;
+using Pockit.Core.Helpers;
 using Xamarin.Essentials;
 
 namespace Pockit.Core.Services.Authorization 
 {
     internal sealed class AuthorizationService : IAuthorizationService
     {
-        private string _state;
+        private readonly IPockitAzureFunctionsApi _pockitAzureFunctionsApi;
+        private string _expectedState;
 
-        /// <inheritdoc />
-        public async Task RequestUserIdentity(string state, string? usernameHint = null) 
+        public AuthorizationService(IPockitAzureFunctionsApi pockitAzureFunctionsApi)
         {
-            if (string.IsNullOrWhiteSpace(state))
+            _pockitAzureFunctionsApi = pockitAzureFunctionsApi;
+        }
+        
+        /// <inheritdoc />
+        public async Task AuthorizeAsync(string username, string state, Uri redirectUri)
+        {
+            /**
+             * The process of obtaining an access code is as follows:
+             *  1: An authorization URL is generated and the user is redirected to GitHub to request their identity
+             *  2: Once logged in, the user is prompted to authorize the application
+             *  3: GitHub redirects back to the site specified in step 1. with a temporary code
+             *  4: A POST request is sent to exchange the code for an access token
+             */
+
+            if (username is null)
             {
-                throw new ArgumentException("State must not be null or empty", nameof(state));
+                throw new ArgumentNullException(nameof(username));
             }
 
-            _state = state;
+            if (state is null)
+            {
+                throw new ArgumentNullException(nameof(state));
+            }
+
+            if (redirectUri is null)
+            {
+                throw new ArgumentNullException(nameof(redirectUri));
+            }
+
+            _expectedState = state;
+            var clientId = await _pockitAzureFunctionsApi.GetPockitClientIdAsync();
             await WebAuthenticator.AuthenticateAsync(
-                new Uri(OAuthWebFlowConstants.GetAuthorizationUriString(usernameHint!, state)),
+                new Uri(OAuthWebFlowConstants.GetAuthorizationUriString(clientId, state, username)),
                 new Uri(OAuthWebFlowConstants.CallbackUri));
         }
 
         /// <inheritdoc />
-        public async Task<string> ExchangeCodeForAccessToken(string code, string state)
+        public Task<bool> CallbackAsync(AccessTokenDTO accessTokenDto)
         {
-            if (state != _state)
+            if (accessTokenDto.State != _expectedState)
             {
-                throw new MaliciousAuthorizationRequestException("States do not match. A third party created the request");
+                throw new MaliciousAuthorizationRequestException();
             }
-            
-            var httpClient = new HttpClient(new HttpClientHandler());
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            var oauthJson = JsonDocument.Parse(File.ReadAllText("oauth.json"));
 
-            var responseMessage = await httpClient.PostAsync(
-                new Uri(
-                    $"https://github.com/login/oauth/access_token?client_id={oauthJson.RootElement.GetProperty("client_id").GetString()}&client_secret={oauthJson.RootElement.GetProperty("client_secret").GetString()}"),
-                null);
-            var contentDom = JsonDocument.Parse(await responseMessage.Content.ReadAsStringAsync());
-
-            return contentDom.RootElement.GetProperty("access_token").GetString();
+            return new Task<bool>(() => false);
         }
     }
 }

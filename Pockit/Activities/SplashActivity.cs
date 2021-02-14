@@ -4,7 +4,10 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Util;
 using Microsoft.Extensions.DependencyInjection;
+using Pockit.Core;
+using Pockit.Core.Constants;
 using Pockit.Core.Services.Authorization;
+using Refit;
 
 namespace Pockit.Activities
 {
@@ -15,18 +18,21 @@ namespace Pockit.Activities
         public override void OnCreate(Bundle? savedInstanceState, PersistableBundle? persistentState)
         {
             base.OnCreate(savedInstanceState, persistentState);
-            Log.Debug(nameof(SplashActivity), "SplashActivity.OnCreate");
-
-            var serviceCollection = new ServiceCollection()
-                .AddSingleton<IAuthorizationService, AuthorizationService>();
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            ServiceLocator.SetServiceProvider(serviceProvider);
         }
 
         /// <inheritdoc />
         protected override void OnResume()
         {
             base.OnResume();
+
+            var serviceCollection = new ServiceCollection()
+                                    .AddSingleton<IAuthorizationService, AuthorizationService>()
+                                    .AddSingleton(typeof(IPockitAzureFunctionsApi),
+                                        Refit.RestService.For<IPockitAzureFunctionsApi>(AzureFunctionsConstants
+                                            .BaseApiUri));
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            ServiceLocator.SetServiceProvider(serviceProvider);
+            
             var preferences = GetPreferences(FileCreationMode.Private)!;
             if (preferences.GetString("access_token", null) is null)
             {
