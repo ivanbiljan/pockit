@@ -86,7 +86,6 @@
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Assembly.cs" />
-    <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="IGitHubApi.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ServiceLocator.cs" />
