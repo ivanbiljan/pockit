@@ -1,37 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace Pockit.Core.Helpers 
+namespace Pockit.Core.Helpers
 {
-    public static class StringHelpers 
+    public static class StringHelpers
     {
-        [ExcludeFromCodeCoverage]
-        public static string GetRandomString(int length = 26)
-        {
-            const string characterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!*()";
-
-            var randomNumberBuffer = new byte[1];
-            var rngProvider = new RNGCryptoServiceProvider();
-
-            var result = new char[length];
-            for (var i = 0; i < length; ++i)
-            {
-                do
-                {
-                    rngProvider.GetBytes(randomNumberBuffer);
-                } while (!(randomNumberBuffer[0] < characterPool.Length * (byte.MaxValue / characterPool.Length)));
-
-                result[i] = characterPool[randomNumberBuffer[0] % characterPool.Length];
-            }
-
-            return new string(result);
-        }
-        
         public static string BuildUri(string baseUri, IDictionary<string, string> queryParameters)
         {
             if (baseUri is null)
@@ -43,7 +20,7 @@ namespace Pockit.Core.Helpers
             {
                 throw new ArgumentNullException(nameof(queryParameters));
             }
-            
+
             var uriBuilder = new StringBuilder();
             var parameters = new List<string>();
 
@@ -79,6 +56,28 @@ namespace Pockit.Core.Helpers
             }
 
             return uriBuilder.ToString();
+        }
+
+        [ExcludeFromCodeCoverage]
+        public static string GetRandomString(int length = 26)
+        {
+            const string characterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!*()";
+
+            var randomNumberBuffer = new byte[1];
+            var rngProvider = new RNGCryptoServiceProvider();
+
+            var result = new char[length];
+            for (var i = 0; i < length; ++i)
+            {
+                do
+                {
+                    rngProvider.GetBytes(randomNumberBuffer);
+                } while (!(randomNumberBuffer[0] < characterPool.Length * (byte.MaxValue / characterPool.Length)));
+
+                result[i] = characterPool[randomNumberBuffer[0] % characterPool.Length];
+            }
+
+            return new string(result);
         }
     }
 }

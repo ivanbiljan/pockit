@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pockit.Core.Exceptions 
+namespace Pockit.Core.Exceptions
 {
     internal sealed class MaliciousAuthorizationRequestException : Exception
     {
@@ -12,7 +12,8 @@ namespace Pockit.Core.Exceptions
         {
         }
 
-        public MaliciousAuthorizationRequestException(string message, Exception innerException) : base(message, innerException)
+        public MaliciousAuthorizationRequestException(string message, Exception innerException) : base(message,
+            innerException)
         {
         }
     }

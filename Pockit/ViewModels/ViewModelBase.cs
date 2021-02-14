@@ -3,19 +3,13 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Pockit.Properties;
 
-namespace Pockit.ViewModels 
+namespace Pockit.ViewModels
 {
     public sealed class ViewModelBase : INotifyPropertyChanged
     {
         private readonly IDictionary<string, object?> _propertyNameToValueMapping = new Dictionary<string, object?>();
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged(string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public T Get<T>([CallerMemberName] string? name = null)
         {
@@ -31,6 +25,12 @@ namespace Pockit.ViewModels
 
             _propertyNameToValueMapping[name!] = value;
             OnPropertyChanged(name);
+        }
+
+        [NotifyPropertyChangedInvocator]
+        private void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

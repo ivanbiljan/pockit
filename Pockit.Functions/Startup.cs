@@ -1,11 +1,11 @@
 ﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Pockit.Functions;
 using Pockit.Core.Services.Authorization;
+using Pockit.Functions;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 
-namespace Pockit.Functions 
+namespace Pockit.Functions
 {
     public sealed class Startup : FunctionsStartup
     {

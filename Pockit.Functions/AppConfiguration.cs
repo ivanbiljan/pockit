@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Pockit.Functions 
+namespace Pockit.Functions
 {
     public static class AppConfiguration
     {

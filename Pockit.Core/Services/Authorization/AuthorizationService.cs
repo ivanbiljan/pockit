@@ -1,15 +1,11 @@
 ﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Pockit.Core.Constants;
 using Pockit.Core.DTOs;
 using Pockit.Core.Exceptions;
-using Pockit.Core.Helpers;
 using Xamarin.Essentials;
 
-namespace Pockit.Core.Services.Authorization 
+namespace Pockit.Core.Services.Authorization
 {
     internal sealed class AuthorizationService : IAuthorizationService
     {
@@ -20,7 +16,7 @@ namespace Pockit.Core.Services.Authorization
         {
             _pockitAzureFunctionsApi = pockitAzureFunctionsApi;
         }
-        
+
         /// <inheritdoc />
         public async Task AuthorizeAsync(string username, string state, Uri redirectUri)
         {

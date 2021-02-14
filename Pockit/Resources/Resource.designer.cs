@@ -4464,11 +4464,11 @@ namespace Pockit
 			// aapt resource value: 0x7f0a002c
 			public const int abc_toolbar_collapse_description = 2131361836;
 			
-			// aapt resource value: 0x7f0a0051
-			public const int action_settings = 2131361873;
+			// aapt resource value: 0x7f0a0049
+			public const int action_settings = 2131361865;
 			
-			// aapt resource value: 0x7f0a0050
-			public const int app_name = 2131361872;
+			// aapt resource value: 0x7f0a0048
+			public const int app_name = 2131361864;
 			
 			// aapt resource value: 0x7f0a003a
 			public const int appbar_scrolling_view_behavior = 2131361850;
@@ -4536,32 +4536,11 @@ namespace Pockit
 			// aapt resource value: 0x7f0a0011
 			public const int common_signin_button_text_long = 2131361809;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int default_web_client_id = 2131361866;
-			
 			// aapt resource value: 0x7f0a003e
 			public const int fab_transformation_scrim_behavior = 2131361854;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int fab_transformation_sheet_behavior = 2131361855;
-			
-			// aapt resource value: 0x7f0a004b
-			public const int firebase_database_url = 2131361867;
-			
-			// aapt resource value: 0x7f0a0048
-			public const int gcm_defaultSenderId = 2131361864;
-			
-			// aapt resource value: 0x7f0a004c
-			public const int google_api_key = 2131361868;
-			
-			// aapt resource value: 0x7f0a0049
-			public const int google_app_id = 2131361865;
-			
-			// aapt resource value: 0x7f0a004d
-			public const int google_crash_reporting_api_key = 2131361869;
-			
-			// aapt resource value: 0x7f0a004e
-			public const int google_storage_bucket = 2131361870;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int hide_bottom_view_on_scroll_behavior = 2131361856;
@@ -4583,9 +4562,6 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f0a0046
 			public const int path_password_strike_through = 2131361862;
-			
-			// aapt resource value: 0x7f0a004f
-			public const int project_id = 2131361871;
 			
 			// aapt resource value: 0x7f0a002d
 			public const int search_menu_title = 2131361837;

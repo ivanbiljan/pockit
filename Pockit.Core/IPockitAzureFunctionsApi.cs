@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Pockit.Core.DTOs;
+﻿using System.Threading.Tasks;
 using Refit;
 
-namespace Pockit.Core 
+namespace Pockit.Core
 {
     public interface IPockitAzureFunctionsApi
     {

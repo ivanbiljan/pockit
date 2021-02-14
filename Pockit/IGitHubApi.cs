@@ -1,4 +1,6 @@
-﻿namespace Pockit {
-    public interface IGitHubApi {
+﻿namespace Pockit
+{
+    public interface IGitHubApi
+    {
     }
 }

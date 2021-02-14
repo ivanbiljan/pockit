@@ -1,24 +1,19 @@
 ﻿#nullable enable
 
 using System;
-using System.Net.Http;
-using System.Text.Json;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Gms.Common.Util;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Pockit.Core.Constants;
 using Pockit.Core.DTOs;
+using Pockit.Core.Helpers;
 using Pockit.Core.Services.Authorization;
-using Pockit.Helpers;
 using Xamarin.Essentials;
-using StringHelpers = Pockit.Core.Helpers.StringHelpers;
 
 namespace Pockit.Activities
 {
@@ -61,7 +56,8 @@ namespace Pockit.Activities
     }
 
     [Activity(NoHistory = true, LaunchMode = LaunchMode.SingleTop)]
-    [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, DataScheme = OAuthWebFlowConstants.CallbackScheme)]
+    [IntentFilter(new[] {Intent.ActionView}, Categories = new[] {Intent.CategoryDefault, Intent.CategoryBrowsable},
+        DataScheme = OAuthWebFlowConstants.CallbackScheme)]
     public sealed class WebAuthenticationCallbackActivity : WebAuthenticatorCallbackActivity
     {
         /// <inheritdoc />
@@ -77,11 +73,10 @@ namespace Pockit.Activities
             {
                 return;
             }
-            
+
             var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>();
             var accessToken = Intent.Data.GetQueryParameter("access_token");
             var state = Intent.Data.GetQueryParameter("state");
-            Log.Debug("WEBAUTH", Intent.Data.ToString());
             authorizationService.CallbackAsync(new AccessTokenDTO(accessToken, state));
         }
     }

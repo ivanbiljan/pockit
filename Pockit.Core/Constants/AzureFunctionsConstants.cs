@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pockit.Core.Constants 
+﻿namespace Pockit.Core.Constants
 {
     internal static class AzureFunctionsConstants
     {

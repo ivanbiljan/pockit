@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pockit 
+namespace Pockit
 {
     public sealed class ServiceLocator
     {
@@ -24,7 +24,8 @@ namespace Pockit
         {
             if (_serviceProvider is null)
             {
-                throw new ArgumentNullException(nameof(_serviceProvider), $"You must configure the service provider via {nameof(ServiceLocator.SetServiceProvider)}");
+                throw new ArgumentNullException(nameof(_serviceProvider),
+                    $"You must configure the service provider via {nameof(SetServiceProvider)}");
             }
 
             return _serviceProvider.GetService(typeof(T)) as T;
