@@ -25,7 +25,7 @@ namespace Pockit.Activities
             var serviceProvider = serviceCollection.BuildServiceProvider();
             ServiceLocator.SetServiceProvider(serviceProvider);
 
-            var preferences = GetPreferences(FileCreationMode.Private)!;
+            var preferences = GetSharedPreferences("pockit", FileCreationMode.Private)!;
             if (preferences.GetString("access_token", null) is null)
             {
                 // Launch LoginActivity

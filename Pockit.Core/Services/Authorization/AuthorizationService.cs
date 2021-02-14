@@ -18,7 +18,7 @@ namespace Pockit.Core.Services.Authorization
         }
 
         /// <inheritdoc />
-        public async Task AuthorizeAsync(string username, string state, Uri redirectUri)
+        public async Task RequestAuthorizationAsync(string username, string state, Uri redirectUri)
         {
             /**
              * The process of obtaining an access code is as follows:
@@ -53,12 +53,7 @@ namespace Pockit.Core.Services.Authorization
         /// <inheritdoc />
         public Task<bool> CallbackAsync(AccessTokenDTO accessTokenDto)
         {
-            if (accessTokenDto.State != _expectedState)
-            {
-                throw new MaliciousAuthorizationRequestException();
-            }
-
-            return new Task<bool>(() => false);
+            return new Task<bool>(() => accessTokenDto.State == _expectedState);
         }
     }
 }

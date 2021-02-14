@@ -17,14 +17,14 @@ namespace Pockit.Core.Services.Authorization
         /// <param name="state">An unguessable, random string used to validate the request.</param>
         /// <param name="callbackUri">The URI GitHub will redirect to once authorization is complete.</param>
         /// <returns>A task for this operation.</returns>
-        Task AuthorizeAsync(string username, string state, Uri callbackUri);
+        Task RequestAuthorizationAsync(string username, string state, Uri callbackUri);
 
         /// <summary>
         ///     The callback method executed once authorization is complete and control is passed back to the caller.
         /// </summary>
         /// <param name="state">
         ///     The state returned by GitHub. You should always make sure this state matches the one provided in a
-        ///     call to <see cref="AuthorizeAsync" />.
+        ///     call to <see cref="RequestAuthorizationAsync" />.
         /// </param>
         /// <returns>A boolean value indicating the success.</returns>
         Task<bool> CallbackAsync(AccessTokenDTO state);

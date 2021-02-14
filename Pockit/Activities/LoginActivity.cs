@@ -50,7 +50,7 @@ namespace Pockit.Activities
             }
 
             var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>();
-            await authorizationService.AuthorizeAsync(username, StringHelpers.GetRandomString(),
+            await authorizationService.RequestAuthorizationAsync(username, StringHelpers.GetRandomString(),
                 new Uri(OAuthWebFlowConstants.RedirectUri));
         }
     }
@@ -61,7 +61,7 @@ namespace Pockit.Activities
     public sealed class WebAuthenticationCallbackActivity : WebAuthenticatorCallbackActivity
     {
         /// <inheritdoc />
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             if (Intent?.Data is null)
@@ -77,7 +77,15 @@ namespace Pockit.Activities
             var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>();
             var accessToken = Intent.Data.GetQueryParameter("access_token");
             var state = Intent.Data.GetQueryParameter("state");
-            authorizationService.CallbackAsync(new AccessTokenDTO(accessToken, state));
+            if (!await authorizationService.CallbackAsync(new AccessTokenDTO(accessToken, state)))
+            {
+                return;
+            }
+
+            using var preferences = GetSharedPreferences("pockit", FileCreationMode.Private)!;
+            using var editor = preferences.Edit()!;
+            editor.PutString("access_token", accessToken);
+            editor.Commit();
         }
     }
 }
