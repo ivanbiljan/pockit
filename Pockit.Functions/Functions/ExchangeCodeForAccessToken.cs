@@ -28,16 +28,12 @@ namespace Pockit.Functions.Functions
             string code = req.Query["code"];
             string state = req.Query["state"];
 
-            log.LogInformation($"State is: {state} | Code is: {code}");
-
             var httpClient = new HttpClient(new HttpClientHandler());
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             var response = await httpClient.PostAsync(
                 OAuthWebFlowConstants.GetAccessTokenUri(AppConfiguration.GitHubClientId,
                     AppConfiguration.GitHubClientSecret, code), null);
             response.EnsureSuccessStatusCode();
-
-            log.LogInformation($"Got success status code");
 
             var contentJsonDocument = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
             var redirectUri = StringHelpers.BuildUri(OAuthWebFlowConstants.CallbackUri,
@@ -46,8 +42,6 @@ namespace Pockit.Functions.Functions
                     ["access_token"] = contentJsonDocument.RootElement.GetProperty("access_token").GetString(),
                     ["state"] = state
                 });
-
-            log.LogInformation($"The redirect URI is: {redirectUri}");
 
             return new RedirectResult(redirectUri, true);
         }

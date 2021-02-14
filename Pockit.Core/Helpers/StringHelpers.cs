@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Pockit.Core.Helpers
 {
     public static class StringHelpers 
     {
+        [ExcludeFromCodeCoverage]
         public static string GetRandomString(int length = 26)
         {
             const string characterPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!*()";
@@ -32,6 +34,16 @@ namespace Pockit.Core.Helpers
         
         public static string BuildUri(string baseUri, IDictionary<string, string> queryParameters)
         {
+            if (baseUri is null)
+            {
+                throw new ArgumentNullException(nameof(baseUri));
+            }
+
+            if (queryParameters is null)
+            {
+                throw new ArgumentNullException(nameof(queryParameters));
+            }
+            
             var uriBuilder = new StringBuilder();
             var parameters = new List<string>();
 
@@ -39,19 +51,19 @@ namespace Pockit.Core.Helpers
             var questionMarkIndex = baseUri.IndexOf('?'); // Separates the uri from the parameters
             if (questionMarkIndex <= 0)
             {
-                uriBuilder.Append(baseUri + "?");
+                uriBuilder.Append(baseUri);
             }
             else
             {
-                first = false;
-                uriBuilder.Append(baseUri[..(questionMarkIndex + 1)]);
+                uriBuilder.Append(baseUri[..questionMarkIndex]);
                 var parametersAsString = baseUri[(questionMarkIndex + 1)..];
 
                 foreach (var parameter in parametersAsString.Split('&'))
                 {
                     var split = parameter.Split('=');
-                    uriBuilder.Append($"&{split[0]}={HttpUtility.UrlEncode(split[1])}");
-                    parameters.Add(parameter);
+                    uriBuilder.Append($"{(first ? '?' : '&')}{split[0]}={HttpUtility.UrlEncode(split[1])}");
+                    parameters.Add(split[0]);
+                    first = false;
                 }
             }
 

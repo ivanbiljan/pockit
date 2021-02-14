@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit", "Pockit\Pockit.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pockit.Functions", "Pockit.Functions\Pockit.Functions.csproj", "{9EF40303-0E1C-48AC-8896-A6FD0FCAE3BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit.Core", "Pockit.Core\Pockit.Core.csproj", "{2E80EB52-130C-47DB-B5E3-335612E5A2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pockit.Core", "Pockit.Core\Pockit.Core.csproj", "{2E80EB52-130C-47DB-B5E3-335612E5A2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pockit.Core.Tests", "Pockit.Core.Tests\Pockit.Core.Tests.csproj", "{EC2C5FE8-3CC2-42EA-AF4C-C994953FD663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E80EB52-130C-47DB-B5E3-335612E5A2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2C5FE8-3CC2-42EA-AF4C-C994953FD663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2C5FE8-3CC2-42EA-AF4C-C994953FD663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2C5FE8-3CC2-42EA-AF4C-C994953FD663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2C5FE8-3CC2-42EA-AF4C-C994953FD663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
