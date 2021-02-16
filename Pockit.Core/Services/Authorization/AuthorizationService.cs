@@ -51,9 +51,10 @@ namespace Pockit.Core.Services.Authorization
         }
 
         /// <inheritdoc />
-        public Task<bool> CallbackAsync(AccessTokenDTO accessTokenDto)
+        public async Task<bool> CallbackAsync(AccessTokenDTO accessTokenDto)
         {
-            return new Task<bool>(() => accessTokenDto.State == _expectedState);
+            //return new Task<bool>(() => accessTokenDto.State == _expectedState);
+            return accessTokenDto.State == _expectedState;
         }
     }
 }

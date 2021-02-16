@@ -1,4 +1,5 @@
-﻿using Android.Content.PM;
+﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -7,38 +8,13 @@ using Xamarin.Essentials;
 
 namespace Pockit.Activities
 {
-    //[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-    public sealed class MainActivity : AppCompatActivity
+    [Activity]
+    public sealed class MainActivity : AppCompatActivity 
     {
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            var id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
-
-            return base.OnOptionsItemSelected(item);
-        }
-
-        public override void OnRequestPermissionsResult(
-            int requestCode,
-            string[] permissions,
-            [GeneratedEnum] Permission[] grantResults)
-        {
-            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.ProfileView);
         }
     }
 }

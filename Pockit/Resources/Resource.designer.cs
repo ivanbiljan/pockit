@@ -3453,8 +3453,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0d0074
 			public const int action_mode_close_button = 2131558516;
 			
-			// aapt resource value: 0x7f0d00cc
-			public const int action_settings = 2131558604;
+			// aapt resource value: 0x7f0d00d2
+			public const int action_settings = 2131558610;
 			
 			// aapt resource value: 0x7f0d00b9
 			public const int action_text = 2131558585;
@@ -3497,6 +3497,9 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f0d004e
 			public const int bottom = 2131558478;
+			
+			// aapt resource value: 0x7f0d00cb
+			public const int bottom_navigation = 2131558603;
 			
 			// aapt resource value: 0x7f0d00a7
 			public const int browser_actions_header_text = 2131558567;
@@ -3633,6 +3636,9 @@ namespace Pockit
 			// aapt resource value: 0x7f0d0070
 			public const int forever = 2131558512;
 			
+			// aapt resource value: 0x7f0d00ca
+			public const int fragment_content = 2131558602;
+			
 			// aapt resource value: 0x7f0d000a
 			public const int ghost_view = 2131558410;
 			
@@ -3693,11 +3699,23 @@ namespace Pockit
 			// aapt resource value: 0x7f0d0079
 			public const int list_item = 2131558521;
 			
-			// aapt resource value: 0x7f0d00cb
-			public const int masked = 2131558603;
+			// aapt resource value: 0x7f0d00cd
+			public const int masked = 2131558605;
 			
 			// aapt resource value: 0x7f0d00bd
 			public const int media_actions = 2131558589;
+			
+			// aapt resource value: 0x7f0d00ce
+			public const int menu_feed = 2131558606;
+			
+			// aapt resource value: 0x7f0d00d0
+			public const int menu_notifications = 2131558608;
+			
+			// aapt resource value: 0x7f0d00d1
+			public const int menu_profile = 2131558609;
+			
+			// aapt resource value: 0x7f0d00cf
+			public const int menu_search = 2131558607;
 			
 			// aapt resource value: 0x7f0d00a5
 			public const int message = 2131558565;
@@ -3987,8 +4005,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0d001b
 			public const int view_offset_helper = 2131558427;
 			
-			// aapt resource value: 0x7f0d00ca
-			public const int visible = 2131558602;
+			// aapt resource value: 0x7f0d00cc
+			public const int visible = 2131558604;
 			
 			// aapt resource value: 0x7f0d002b
 			public const int wide = 2131558443;
@@ -4285,16 +4303,19 @@ namespace Pockit
 			public const int notification_template_part_time = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_item_material = 2130968638;
+			public const int ProfileView = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int select_dialog_multichoice_material = 2130968639;
+			public const int select_dialog_item_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int select_dialog_singlechoice_material = 2130968640;
+			public const int select_dialog_multichoice_material = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int support_simple_spinner_dropdown_item = 2130968641;
+			public const int select_dialog_singlechoice_material = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int support_simple_spinner_dropdown_item = 2130968642;
 			
 			static Layout()
 			{
@@ -4310,7 +4331,10 @@ namespace Pockit
 		{
 			
 			// aapt resource value: 0x7f100000
-			public const int menu_main = 2131755008;
+			public const int menu_bottomnavigation_main = 2131755008;
+			
+			// aapt resource value: 0x7f100001
+			public const int menu_main = 2131755009;
 			
 			static Menu()
 			{
@@ -4333,6 +4357,18 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f030002
 			public const int ic_launcher_round = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int ic_notifications = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int ic_person = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int ic_public = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int ic_search = 2130903046;
 			
 			static Mipmap()
 			{

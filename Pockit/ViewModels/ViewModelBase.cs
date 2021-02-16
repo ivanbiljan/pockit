@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Pockit.Properties;
@@ -13,7 +15,7 @@ namespace Pockit.ViewModels
 
         public T Get<T>([CallerMemberName] string? name = null)
         {
-            return (_propertyNameToValueMapping.TryGetValue(name, out var obj) && obj != null ? (T) obj : default)!;
+            return (_propertyNameToValueMapping.TryGetValue(name!, out var obj) && obj != null ? (T) obj : default)!;
         }
 
         public void Set<T>(T value, [CallerMemberName] string? name = null)
@@ -24,11 +26,11 @@ namespace Pockit.ViewModels
             }
 
             _propertyNameToValueMapping[name!] = value;
-            OnPropertyChanged(name);
+            OnPropertyChanged(name!);
         }
 
         [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged(string propertyName = null)
+        private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

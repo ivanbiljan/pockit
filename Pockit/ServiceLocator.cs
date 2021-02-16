@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 
 namespace Pockit
 {
@@ -20,7 +22,7 @@ namespace Pockit
             _instance = new ServiceLocator(serviceProvider);
         }
 
-        public T Get<T>() where T : class
+        public T? Get<T>() where T : class
         {
             if (_serviceProvider is null)
             {
