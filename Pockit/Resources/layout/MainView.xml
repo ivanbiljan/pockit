@@ -21,6 +21,8 @@
     android:background="@android:color/white"
     app:elevation="16dp"
     app:menu="@menu/menu_bottomnavigation_main"
-    app:labelVisibilityMode="labeled"/>
+    app:labelVisibilityMode="labeled"
+    app:itemIconTint="@menu/menu_bottomnavigation_selector"
+    app:itemTextColor="@menu/menu_bottomnavigation_selector"/>
 
 </RelativeLayout>
