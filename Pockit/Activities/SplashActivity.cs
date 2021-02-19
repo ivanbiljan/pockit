@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Support.V7.App;
+using AndroidX.AppCompat.App;
 using Microsoft.Extensions.DependencyInjection;
 using Pockit.Core;
 using Pockit.Core.Constants;

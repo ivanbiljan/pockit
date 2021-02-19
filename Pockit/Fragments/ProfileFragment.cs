@@ -1,15 +1,13 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
+using AndroidX.Fragment.App;
+using AndroidX.Core.Widget;
 using GalaSoft.MvvmLight.Helpers;
-using Fragment = Android.Support.V4.App.Fragment;
 
 namespace Pockit.Fragments 
 {

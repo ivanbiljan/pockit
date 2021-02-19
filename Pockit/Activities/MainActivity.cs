@@ -2,8 +2,8 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.App;
 using Android.Views;
+using AndroidX.AppCompat.App;
 using Pockit.Fragments;
 using Xamarin.Essentials;
 
