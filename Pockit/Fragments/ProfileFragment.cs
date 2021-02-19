@@ -27,8 +27,6 @@ namespace Pockit.Fragments
         /// <inheritdoc />
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            _avatarImageView = container.FindViewById<ImageView>(Resource.Id.imgAvatar);
-            
             return inflater.Inflate(Resource.Layout.ProfileFragmentView, container, false);
         }
     }

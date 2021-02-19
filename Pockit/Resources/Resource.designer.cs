@@ -3318,8 +3318,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0a006d
 			public const int action_mode_close_button = 2131361901;
 			
-			// aapt resource value: 0x7f0a00d0
-			public const int action_settings = 2131362000;
+			// aapt resource value: 0x7f0a00c6
+			public const int action_settings = 2131361990;
 			
 			// aapt resource value: 0x7f0a00b4
 			public const int action_text = 2131361972;
@@ -3380,9 +3380,6 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f0a0074
 			public const int buttonPanel = 2131361908;
-			
-			// aapt resource value: 0x7f0a00c0
-			public const int cardAvatarPlaceholder = 2131361984;
 			
 			// aapt resource value: 0x7f0a004e
 			public const int center = 2131361870;
@@ -3516,9 +3513,6 @@ namespace Pockit
 			// aapt resource value: 0x7f0a0070
 			public const int image = 2131361904;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int imgAvatar = 2131361985;
-			
 			// aapt resource value: 0x7f0a00b8
 			public const int info = 2131361976;
 			
@@ -3533,12 +3527,6 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f0a00a5
 			public const int largeLabel = 2131361957;
-			
-			// aapt resource value: 0x7f0a00c4
-			public const int layoutFollowers = 2131361988;
-			
-			// aapt resource value: 0x7f0a00c7
-			public const int layoutFollowing = 2131361991;
 			
 			// aapt resource value: 0x7f0a0056
 			public const int left = 2131361878;
@@ -3555,20 +3543,20 @@ namespace Pockit
 			// aapt resource value: 0x7f0a0072
 			public const int list_item = 2131361906;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int masked = 2131361995;
+			// aapt resource value: 0x7f0a00c1
+			public const int masked = 2131361985;
 			
-			// aapt resource value: 0x7f0a00cc
-			public const int menu_feed = 2131361996;
+			// aapt resource value: 0x7f0a00c2
+			public const int menu_feed = 2131361986;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int menu_notifications = 2131361998;
+			// aapt resource value: 0x7f0a00c4
+			public const int menu_notifications = 2131361988;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int menu_profile = 2131361999;
+			// aapt resource value: 0x7f0a00c5
+			public const int menu_profile = 2131361989;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int menu_search = 2131361997;
+			// aapt resource value: 0x7f0a00c3
+			public const int menu_search = 2131361987;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int message = 2131361950;
@@ -3834,26 +3822,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0a0013
 			public const int transition_transform = 2131361811;
 			
-			// aapt resource value: 0x7f0a00c6
-			public const int txtFollowers = 2131361990;
-			
-			// aapt resource value: 0x7f0a00c5
-			public const int txtFollowersCount = 2131361989;
-			
-			// aapt resource value: 0x7f0a00c9
-			public const int txtFollowing = 2131361993;
-			
-			// aapt resource value: 0x7f0a00c8
-			public const int txtFollowingCount = 2131361992;
-			
 			// aapt resource value: 0x7f0a0025
 			public const int txtLoginUsername = 2131361829;
-			
-			// aapt resource value: 0x7f0a00c2
-			public const int txtRealName = 2131361986;
-			
-			// aapt resource value: 0x7f0a00c3
-			public const int txtUsername = 2131361987;
 			
 			// aapt resource value: 0x7f0a0036
 			public const int uniform = 2131361846;
@@ -3870,8 +3840,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int visible = 2131361994;
+			// aapt resource value: 0x7f0a00c0
+			public const int visible = 2131361984;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int withText = 2131361861;
