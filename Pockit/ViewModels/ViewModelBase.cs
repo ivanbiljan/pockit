@@ -3,11 +3,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using MvvmCross.ViewModels;
 using Pockit.Properties;
 
 namespace Pockit.ViewModels
 {
-    public sealed class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : MvxViewModel, INotifyPropertyChanged
     {
         private readonly IDictionary<string, object?> _propertyNameToValueMapping = new Dictionary<string, object?>();
 
