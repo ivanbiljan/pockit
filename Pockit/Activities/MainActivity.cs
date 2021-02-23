@@ -9,7 +9,7 @@ using Xamarin.Essentials;
 
 namespace Pockit.Activities
 {
-    [Activity(Theme = "@style/AppTheme.NoActionBar")]
+    [Activity]
     public sealed class MainActivity : AppCompatActivity 
     {
         protected override void OnCreate(Bundle? savedInstanceState)

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-  <color name="colorPrimary">#2c3e50</color>
-  <color name="colorPrimaryDark">#1B3147</color>
-  <color name="colorAccent">#3498db</color>
+  <color name="primary">#bb86fc</color>
+  <color name="primaryDark">#3700b3</color>
+  <color name="accent">#03dac6</color>
+  <color name="error">#E53935</color>
+  <color name="colorSurface">#121212</color>
+  <color name="colorOnSurface">#FFFFFF</color>
   <color name="splash_background">#FFFFFF</color>
 </resources>
