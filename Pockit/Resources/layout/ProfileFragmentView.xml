@@ -37,7 +37,7 @@
                 android:layout_toRightOf="@id/imgAvatar"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Real name"/>
+                app:MvxBind="Text Model.Name"/>
 
             <TextView
                 android:id="@+id/txtLogin"
@@ -46,7 +46,7 @@
                 android:layout_toRightOf="@id/imgAvatar"
                 android:layout_below="@id/txtRealName"
                 android:textSize="10sp"
-                android:text="username"/>
+                app:MvxBind="Text Model.Login"/>
 
             <TextView
                 android:id="@+id/txtCompany"

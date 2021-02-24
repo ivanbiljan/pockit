@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using AndroidX.AppCompat.App;
-using Pockit.Fragments;
+using Pockit.Views;
 using Xamarin.Essentials;
 
 namespace Pockit.Activities
@@ -16,12 +16,6 @@ namespace Pockit.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.MainView);
-
-            if (savedInstanceState is null)
-            {
-                SupportFragmentManager.BeginTransaction().SetReorderingAllowed(true)
-                                      .Add(Resource.Id.fragment_content, new ProfileFragment(), null).Commit();
-            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using Android.Content;
 using AndroidX.AppCompat.App;
 using Microsoft.Extensions.DependencyInjection;
+using MvvmCross.Platforms.Android.Views;
 using Pockit.Core;
 using Pockit.Core.Constants;
 using Pockit.Core.Services.Authorization;
@@ -10,31 +11,7 @@ using Refit;
 namespace Pockit.Activities
 {
     [Activity(Theme = "@style/AppTheme.Splash", MainLauncher = true, NoHistory = true)]
-    public sealed class SplashActivity : AppCompatActivity
+    public sealed class SplashActivity : MvxSplashScreenActivity
     {
-        /// <inheritdoc />
-        protected override void OnResume()
-        {
-            base.OnResume();
-
-            var serviceCollection = new ServiceCollection()
-                                    .AddSingleton<IAuthorizationService, AuthorizationService>()
-                                    .AddSingleton(typeof(IPockitAzureFunctionsApi),
-                                        RestService.For<IPockitAzureFunctionsApi>(AzureFunctionsConstants
-                                            .BaseApiUri));
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            ServiceLocator.SetServiceProvider(serviceProvider);
-
-            var preferences = GetSharedPreferences("pockit", FileCreationMode.Private)!;
-            if (preferences.GetString("access_token", null) is null)
-            {
-                // Launch LoginActivity
-                StartActivity(new Intent(this, typeof(MainActivity)));
-            }
-            else
-            {
-                StartActivity(new Intent(this, typeof(MainActivity)));
-            }
-        }
     }
 }

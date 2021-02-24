@@ -8,10 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Pockit.Core.DTOs;
 
 namespace Pockit.ViewModels 
 {
     public sealed class ProfileViewModel : ViewModelBase
     {
+        public GitHubUser Model { get; }
     }
 }

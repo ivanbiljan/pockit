@@ -14,7 +14,7 @@ using MvvmCross.Platforms.Android.Views;
 namespace Pockit 
 {
     [Application]
-    public class Application : MvxAndroidApplication<MvxAndroidSetup<PockitMvxStartup>, PockitMvxStartup> {
+    public class Application : MvxAndroidApplication<MvxAndroidSetup<PockitMvxApplication>, PockitMvxApplication> {
         public Application(nint javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
         }
