@@ -17,14 +17,14 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Pockit.Views 
 {
+    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.fragment_content)]
     public sealed class ProfileViewFragment : MvxFragment<ProfileViewModel>
     {
-        private ViewGroup _viewGroupContainer;
-
         /// <inheritdoc />
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return this.BindingInflate(Resource.Layout.ProfileFragmentView, container, false);
+            base.OnCreateView(inflater, container, savedInstanceState);
+            return this.BindingInflate(Resource.Layout.ProfileFragmentView, null);
         }
     }
 }

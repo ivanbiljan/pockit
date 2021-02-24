@@ -27,7 +27,7 @@ namespace Pockit
 
         protected override Task NavigateToFirstViewModel(object hint = null)
         {
-            return _navigationService.Navigate<ProfileViewModel>();
+            return _navigationService.Navigate<MainViewModel>();
         }
     }
 }

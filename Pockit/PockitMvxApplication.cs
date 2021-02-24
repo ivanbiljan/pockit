@@ -24,6 +24,8 @@ namespace Pockit
         public override void Initialize()
         {
             CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
+            CreatableTypes(typeof(Pockit.Core.IGitHubApi).Assembly).EndingWith("Service").AsInterfaces()
+                                                                   .RegisterAsLazySingleton();
             
             RegisterCustomAppStart<PockitMvxAppStart>();
         }
