@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
+using Pockit.Core.Services;
+using Pockit.Services;
 
 namespace Pockit 
 {
@@ -21,6 +23,8 @@ namespace Pockit
         /// <inheritdoc />
         public override void Initialize()
         {
+            CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
+            
             RegisterCustomAppStart<PockitMvxAppStart>();
         }
     }
