@@ -21,10 +21,7 @@ namespace Pockit.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.MainView);
 
-            if (savedInstanceState is null)
-            {
-                ViewModel.ShowProfileViewCommand.Execute(null);
-            }
+            ViewModel.ShowProfileViewCommand.Execute(null);
         }
     }
 }

@@ -10,16 +10,20 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using Google.Android.Material.Snackbar;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
+using MvvmCross.Platforms.Android.Views;
 using Pockit.Core.Constants;
 using Pockit.Core.DTOs;
 using Pockit.Core.Helpers;
 using Pockit.Core.Services.Authorization;
+using Pockit.ViewModels;
 using Xamarin.Essentials;
 
 namespace Pockit.Activities
 {
     [Activity]
-    public sealed class LoginActivity : AppCompatActivity
+    [MvxActivityPresentation]
+    public sealed class LoginActivity : MvxActivity<LoginViewModel>
     {
         /// <inheritdoc />
         protected override void OnCreate(Bundle? savedInstanceState)
@@ -46,7 +50,7 @@ namespace Pockit.Activities
             var username = FindViewById<EditText>(Resource.Id.txtLoginUsername)!.Text;
             if (string.IsNullOrWhiteSpace(username))
             {
-                Snackbar.Make((View) sender, "Invalid username", Snackbar.LengthShort).Show();
+                Snackbar.Make((View) sender, "Invalid username", BaseTransientBottomBar.LengthShort).Show();
                 return;
             }
 

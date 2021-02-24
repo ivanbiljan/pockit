@@ -16,9 +16,9 @@ using Pockit.Services;
 namespace Pockit 
 {
     /// <summary>
-    /// Represents the MvvmCross startup class. This class acts as a composition root.
+    /// Represents the MvvmCross setup class. This class performs initial initialization logic and acts as a composition root.
     /// </summary>
-    public sealed class PockitMvxApplication : MvxApplication 
+    public sealed class PockitMvxApplicationSetup : MvxApplication
     {
         /// <inheritdoc />
         public override void Initialize()
