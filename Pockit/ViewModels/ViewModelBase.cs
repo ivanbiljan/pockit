@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MvvmCross.ViewModels;
+using Pockit.Core.DTOs;
 using Pockit.Properties;
 
 namespace Pockit.ViewModels
@@ -35,5 +36,11 @@ namespace Pockit.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+
+    public abstract class ViewModelBase<T> : ViewModelBase, IMvxViewModel<T> where T : class
+    {
+        /// <inheritdoc />
+        public abstract void Prepare(T parameter);
     }
 }

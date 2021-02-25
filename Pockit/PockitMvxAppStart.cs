@@ -33,7 +33,7 @@ namespace Pockit
 
         protected override Task NavigateToFirstViewModel(object hint = null)
         {
-            if (_loginService.TryGetLogin(out _))
+            if (!_loginService.TryGetLogin(out var token))
             {
                 return _navigationService.Navigate<LoginViewModel>();
             }

@@ -18,9 +18,9 @@ namespace Pockit.Services
         /// <inheritdoc />
         public bool TryGetLogin(out string? accessToken)
         {
-            return (accessToken =
-                AndroidApplication.MainContext.GetSharedPreferences("pockit", FileCreationMode.Private)!.GetString(
-                    "access_token", null)) is not null;
+            var preferences = AndroidApplication.MainContext.GetSharedPreferences("pockit", FileCreationMode.Private)!;
+            accessToken = preferences.GetString("access_token", null);
+            return accessToken != null;
         }
     }
 }

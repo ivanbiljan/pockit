@@ -10,6 +10,9 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using Google.Android.Material.Snackbar;
+using MvvmCross;
+using MvvmCross.IoC;
+using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views;
 using Pockit.Core.Constants;
@@ -54,7 +57,7 @@ namespace Pockit.Activities
                 return;
             }
 
-            var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>()!;
+            var authorizationService = MvxIoCProvider.Instance.GetSingleton<IAuthorizationService>()!;
             await authorizationService.RequestAuthorizationAsync(username, StringHelpers.GetRandomString(),
                 new Uri(OAuthWebFlowConstants.RedirectUri));
         }
@@ -79,7 +82,8 @@ namespace Pockit.Activities
                 return;
             }
 
-            var authorizationService = ServiceLocator.Instance.Get<IAuthorizationService>()!;
+            var context = Mvx.IoCProvider.Resolve<IMvxAndroidGlobals>().ApplicationContext;
+            var authorizationService = Mvx.IoCProvider.GetSingleton<IAuthorizationService>();
             var accessToken = Intent.Data.GetQueryParameter("access_token");
             var state = Intent.Data.GetQueryParameter("state");
             if (!await authorizationService.CallbackAsync(new AccessTokenDTO(accessToken, state)))
@@ -88,11 +92,12 @@ namespace Pockit.Activities
                 Finish();
             }
 
-            using var preferences = GetSharedPreferences("pockit", FileCreationMode.Private)!;
+            using var preferences = context.GetSharedPreferences("pockit", FileCreationMode.Private)!;
             using var editor = preferences.Edit()!;
             editor.PutString("access_token", accessToken);
             editor.Commit();
-            Log.Debug(nameof(LoginActivity), "Login successful");
+            editor.Apply();
+            Log.Debug(nameof(LoginActivity), $"Login successful");
         }
     }
 }

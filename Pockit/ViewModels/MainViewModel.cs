@@ -9,7 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MvvmCross.Commands;
+using MvvmCross.IoC;
 using MvvmCross.Navigation;
+using MvvmCross.Platforms.Android;
+using Pockit.Core;
+using Pockit.Core.DTOs;
 
 namespace Pockit.ViewModels
 {
@@ -20,10 +24,12 @@ namespace Pockit.ViewModels
         public MainViewModel(IMvxNavigationService navigationService)
         {
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
-
-            ShowProfileViewCommand = new MvxCommand(() => _navigationService.Navigate<ProfileViewModel>());
         }
 
-        public IMvxCommand ShowProfileViewCommand { get; }
+        public IMvxCommand ShowProfileViewCommand => new MvxCommand(async () => {
+            var gitHubApi = MvxIoCProvider.Instance.GetSingleton<IGitHubApi>();
+            var authenticatedUser = await gitHubApi.GetAuthenticatedUser();
+            await _navigationService.Navigate<ProfileViewModel, GitHubUser>(authenticatedUser);
+        });
     }
 }
