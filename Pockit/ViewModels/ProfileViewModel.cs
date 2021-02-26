@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Org.W3c.Dom;
 using Pockit.Core;
 using Pockit.Core.DTOs;
 
@@ -30,5 +31,9 @@ namespace Pockit.ViewModels
         {
             Model = parameter;
         }
+
+        public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
+        
+        public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
     }
 }

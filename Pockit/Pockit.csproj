@@ -89,6 +89,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="AndroidApplication.cs" />
     <Compile Include="Assembly.cs" />
+    <Compile Include="MvxConverters\NullVisibilityValueConverter.cs" />
     <Compile Include="PockitMvxApplicationSetup.cs" />
     <Compile Include="PockitMvxAppStart.cs" />
     <Compile Include="Properties\Annotations.cs" />
