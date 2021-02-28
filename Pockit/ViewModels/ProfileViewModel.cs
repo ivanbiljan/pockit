@@ -12,6 +12,7 @@ using System.Text;
 using Org.W3c.Dom;
 using Pockit.Core;
 using Pockit.Core.DTOs;
+using Pockit.Core.Helpers;
 
 namespace Pockit.ViewModels 
 {
@@ -35,5 +36,9 @@ namespace Pockit.ViewModels
         public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
         
         public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
+
+        public string Followers => StringHelpers.ToAbbreviatedString((ulong) Model.Followers);
+
+        public string Following => StringHelpers.ToAbbreviatedString((ulong) Model.Following);
     }
 }
