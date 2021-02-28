@@ -62,5 +62,25 @@ namespace Pockit.Core.Tests.Helpers
 
             Assert.Equal("pockit://callback?access_token=test&state=ABCDE!()", builtUri);
         }
+
+        [Theory]
+        [InlineData(1, "1")]
+        [InlineData(17, "17")]
+        [InlineData(123, "123")]
+        [InlineData(1000, "1K")]
+        [InlineData(9570, "9,6K")]
+        [InlineData(8023, "8K")]
+        [InlineData(12345, "12,3K")]
+        [InlineData(123456, "123K")]
+        [InlineData(1234567, "1,2M")]
+        [InlineData(1000000, "1M")]
+        [InlineData(1000000000, "1B")]
+        [InlineData(1234567890000, "1,2e12")]
+        public void ToAbbreviatedString_IsCorrect(ulong number, string expectedAbbreviation)
+        {
+            var abbreviatedString = StringHelpers.ToAbbreviatedString(number);
+
+            Assert.Equal(expectedAbbreviation, abbreviatedString);
+        }
     }
 }

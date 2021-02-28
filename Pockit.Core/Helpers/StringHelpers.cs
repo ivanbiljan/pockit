@@ -79,5 +79,31 @@ namespace Pockit.Core.Helpers
 
             return new string(result);
         }
+
+        public static string ToAbbreviatedString(ulong number)
+        {
+            var numberOfDigits = (int) Math.Log10(number) + 1;
+            if (numberOfDigits < 4)
+            {
+                return number.ToString();
+            }
+
+            var orderOfMagnitude = numberOfDigits switch
+            {
+                var n when n < 7             => "K",
+                var n when n >= 7 && n < 10  => "M",
+                var n when n >= 10 && n < 13 => "B",
+                _                            => $"e{numberOfDigits - numberOfDigits % 3}"
+            };
+
+            var number2 = number / Math.Pow(10,
+                numberOfDigits % 3 == 0 ? numberOfDigits - 3 : numberOfDigits - numberOfDigits % 3);
+            if ((int) number2 < 100)
+            {
+                return $"{number2:0.#}{orderOfMagnitude}";
+            }
+
+            return $"{(int) number2}{orderOfMagnitude}";
+        }
     }
 }
