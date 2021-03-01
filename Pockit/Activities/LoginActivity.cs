@@ -16,7 +16,7 @@ using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views;
 using Pockit.Core.Constants;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 using Pockit.Core.Helpers;
 using Pockit.Core.Services.Authorization;
 using Pockit.ViewModels;

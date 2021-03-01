@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 
 namespace Pockit.Core.Services.Authorization
 {

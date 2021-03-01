@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Org.W3c.Dom;
 using Pockit.Core;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 using Pockit.Core.Helpers;
 
 namespace Pockit.ViewModels 

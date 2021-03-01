@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MvvmCross.ViewModels;
-using Pockit.Core.DTOs;
 using Pockit.Properties;
 
 namespace Pockit.ViewModels

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 using Refit;
 
 namespace Pockit.Core

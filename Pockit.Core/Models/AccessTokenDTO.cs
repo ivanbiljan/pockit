@@ -1,4 +1,4 @@
-﻿namespace Pockit.Core.DTOs
+﻿namespace Pockit.Core.Models
 {
     public sealed class AccessTokenDTO
     {

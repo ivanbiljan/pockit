@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace Pockit.Core.DTOs 
+namespace Pockit.Core.Models 
 {
     public sealed class GitHubUser 
     {

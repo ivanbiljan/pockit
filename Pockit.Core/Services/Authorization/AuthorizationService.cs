@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Pockit.Core.Constants;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 using Pockit.Core.Exceptions;
 using Xamarin.Essentials;
 

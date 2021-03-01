@@ -13,7 +13,7 @@ using MvvmCross.IoC;
 using MvvmCross.Navigation;
 using MvvmCross.Platforms.Android;
 using Pockit.Core;
-using Pockit.Core.DTOs;
+using Pockit.Core.Models;
 
 namespace Pockit.ViewModels
 {
