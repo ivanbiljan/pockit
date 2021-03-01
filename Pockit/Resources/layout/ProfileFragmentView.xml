@@ -21,20 +21,29 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/imgAvatar"
-                android:layout_width="78dp"
-                android:layout_height="78dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="39dp"
-                app:strokeColor="@android:color/white"
-                app:strokeWidth="1dp"/>
+          <com.google.android.material.card.MaterialCardView
+            app:strokeColor="#FF0000"
+            app:strokeWidth="1dp"
+            android:id="@+id/cardAvatarPlaceholder"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="36dp">
+
+            <ImageView
+              android:id="@+id/imgAvatar"
+              android:layout_width="72dp"
+              android:layout_height="72dp"
+              android:layout_gravity="center"
+              android:scaleType="centerCrop"/>
+
+          </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/txtRealName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imgAvatar"
+                android:layout_toRightOf="@id/cardAvatarPlaceholder"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:MvxBind="Text Model.Name"/>
@@ -43,7 +52,7 @@
                 android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imgAvatar"
+                android:layout_toRightOf="@id/cardAvatarPlaceholder"
                 android:layout_below="@id/txtRealName"
                 android:textSize="10sp"
                 app:MvxBind="Text Model.Login"/>
@@ -52,8 +61,8 @@
                 android:id="@+id/txtCompany"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imgAvatar"
-                android:layout_alignBottom="@id/imgAvatar"
+                android:layout_toRightOf="@id/cardAvatarPlaceholder"
+                android:layout_alignBottom="@id/cardAvatarPlaceholder"
                 android:textSize="12sp"
                 app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility"/>
 
@@ -61,7 +70,7 @@
                 android:id="@+id/txtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imgAvatar"
+                android:layout_toRightOf="@id/cardAvatarPlaceholder"
                 android:layout_above="@id/txtCompany"
                 android:textSize="12sp"
                 app:MvxBind="Text Location; Visibility Location, Converter=NullVisibility"/>
