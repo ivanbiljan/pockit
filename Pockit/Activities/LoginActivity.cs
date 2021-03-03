@@ -91,9 +91,9 @@ namespace Pockit.Activities
                 Finish();
             }
 
-            using var preferences = context.GetSharedPreferences("pockit", FileCreationMode.Private)!;
+            using var preferences = context.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
             using var editor = preferences.Edit()!;
-            editor.PutString("access_token", accessToken);
+            editor.PutString(PreferencesKeys.AccessToken, accessToken);
             editor.Commit();
             editor.Apply();
             Log.Debug(nameof(LoginActivity), "Login successful");

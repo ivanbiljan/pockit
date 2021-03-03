@@ -29,7 +29,7 @@ namespace Pockit
 
             MvxIoCProvider.Initialize();
 
-            var preferences = AndroidApplication.MainContext.GetSharedPreferences("pockit", FileCreationMode.Private)!;
+            var preferences = AndroidApplication.MainContext.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
             var accessToken = preferences.GetString("access_token", null);
 
             Debug.Assert(accessToken != null, "accessToken != null");
