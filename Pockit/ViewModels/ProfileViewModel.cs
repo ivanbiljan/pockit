@@ -1,20 +1,9 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Org.W3c.Dom;
+﻿using System;
 using Pockit.Core;
-using Pockit.Core.Models;
 using Pockit.Core.Helpers;
+using Pockit.Core.Models;
 
-namespace Pockit.ViewModels 
+namespace Pockit.ViewModels
 {
     public sealed class ProfileViewModel : ViewModelBase<GitHubUser>
     {
@@ -24,7 +13,17 @@ namespace Pockit.ViewModels
         {
             _gitHubApi = gitHubApi ?? throw new ArgumentNullException(nameof(gitHubApi));
         }
-        
+
+        //public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
+        public string? Company => "Company";
+
+        public string Followers => StringHelpers.ToAbbreviatedString((ulong) Model.Followers.TotalCount);
+
+        public string Following => StringHelpers.ToAbbreviatedString((ulong) Model.Following.TotalCount);
+
+        //public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
+        public string? Location => "Location";
+
         public GitHubUser Model { get; private set; }
 
         /// <inheritdoc />
@@ -32,13 +31,5 @@ namespace Pockit.ViewModels
         {
             Model = parameter;
         }
-
-        public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
-        
-        public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
-
-        public string Followers => StringHelpers.ToAbbreviatedString((ulong) Model.Followers);
-
-        public string Following => StringHelpers.ToAbbreviatedString((ulong) Model.Following);
     }
 }

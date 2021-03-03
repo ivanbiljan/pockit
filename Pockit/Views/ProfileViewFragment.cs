@@ -1,45 +1,32 @@
-﻿using Android.App;
-using Android.Content;
+﻿using System.IO;
+using System.Net.Http;
+using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Runtime.InteropServices;
-using System.Text;
-using Android.Content.Res;
-using Android.Graphics;
-using MvvmCross.Platforms.Android.Views.Fragments;
-using Pockit.ViewModels;
-using AndroidX.AppCompat.App;
-using Java.IO;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using MvvmCross.Platforms.Android.Views.Fragments;
+using Pockit.ViewModels;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.Formats.Bmp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-
-using Bitmap = Android.Graphics.Bitmap;
 using Color = SixLabors.ImageSharp.Color;
 
-namespace Pockit.Views 
+namespace Pockit.Views
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.fragment_content)]
     public sealed class ProfileViewFragment : MvxFragment<ProfileViewModel>
     {
         private ImageView _avatarView;
-        
+
         /// <inheritdoc />
         public override async void OnActivityCreated(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
+            OnCreate(savedInstanceState);
 
             var httpClient = new HttpClient(new HttpClientHandler());
             await using var avatarStream = await httpClient.GetStreamAsync(ViewModel.Model.AvatarUrl);
@@ -57,7 +44,7 @@ namespace Pockit.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            
+
             var view = this.BindingInflate(Resource.Layout.ProfileFragmentView, null);
             _avatarView = view.FindViewById<ImageView>(Resource.Id.imgAvatar);
             _avatarView.SetLayerType(LayerType.Software, null);
@@ -65,25 +52,15 @@ namespace Pockit.Views
             return view;
         }
 
-        // Implements a full image mutating pipeline operating on IImageProcessingContext
-        private static IImageProcessingContext ConvertToAvatar(
-            IImageProcessingContext processingContext,
-            Size size,
-            float cornerRadius)
-        {
-            return ApplyRoundedCorners(
-                processingContext.Resize(new ResizeOptions {Size = size, Mode = ResizeMode.Crop}), cornerRadius);
-        }
-
 
         // This method can be seen as an inline implementation of an `IImageProcessor`:
         // (The combination of `IImageOperations.Apply()` + this could be replaced with an `IImageProcessor`)
         private static IImageProcessingContext ApplyRoundedCorners(IImageProcessingContext ctx, float cornerRadius)
         {
-            Size size = ctx.GetCurrentSize();
+            var size = ctx.GetCurrentSize();
             IPathCollection corners = BuildCorners(size.Width, size.Height, cornerRadius);
 
-            ctx.SetGraphicsOptions(new GraphicsOptions()
+            ctx.SetGraphicsOptions(new GraphicsOptions
             {
                 Antialias = true,
                 AlphaCompositionMode =
@@ -112,8 +89,8 @@ namespace Pockit.Views
             // corner is now a corner shape positions top left
             //lets make 3 more positioned correctly, we can do that by translating the original around the center of the image
 
-            float rightPos = imageWidth - cornerTopLeft.Bounds.Width + 1;
-            float bottomPos = imageHeight - cornerTopLeft.Bounds.Height + 1;
+            var rightPos = imageWidth - cornerTopLeft.Bounds.Width + 1;
+            var bottomPos = imageHeight - cornerTopLeft.Bounds.Height + 1;
 
             // move it across the width of the image - the width of the shape
             IPath cornerTopRight = cornerTopLeft.RotateDegree(90).Translate(rightPos, 0);
@@ -121,6 +98,16 @@ namespace Pockit.Views
             IPath cornerBottomRight = cornerTopLeft.RotateDegree(180).Translate(rightPos, bottomPos);
 
             return new PathCollection(cornerTopLeft, cornerBottomLeft, cornerTopRight, cornerBottomRight);
+        }
+
+        // Implements a full image mutating pipeline operating on IImageProcessingContext
+        private static IImageProcessingContext ConvertToAvatar(
+            IImageProcessingContext processingContext,
+            Size size,
+            float cornerRadius)
+        {
+            return ApplyRoundedCorners(
+                processingContext.Resize(new ResizeOptions {Size = size, Mode = ResizeMode.Crop}), cornerRadius);
         }
     }
 }

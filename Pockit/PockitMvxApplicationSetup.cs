@@ -1,30 +1,21 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Android.Content;
+using GraphQL.Client.Abstractions;
+using GraphQL.Client.Http;
+using GraphQL.Client.Serializer.SystemTextJson;
 using MvvmCross.IoC;
-using MvvmCross.Platforms.Android;
 using MvvmCross.ViewModels;
 using Pockit.Core;
 using Pockit.Core.Constants;
-using Pockit.Core.Services;
-using Pockit.Services;
 using Refit;
 
-namespace Pockit 
+namespace Pockit
 {
     /// <summary>
-    /// Represents the MvvmCross setup class. This class performs initial initialization logic and acts as a composition root.
+    ///     Represents the MvvmCross setup class. This class performs initialization logic and acts as a composition root.
     /// </summary>
     public sealed class PockitMvxApplicationSetup : MvxApplication
     {
@@ -33,17 +24,17 @@ namespace Pockit
         {
             // Set up service bindings
             CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
-            CreatableTypes(typeof(Pockit.Core.IGitHubApi).Assembly).EndingWith("Service").AsInterfaces()
-                                                                   .RegisterAsLazySingleton();
+            CreatableTypes(typeof(IGitHubApi).Assembly).EndingWith("Service").AsInterfaces()
+                                                       .RegisterAsLazySingleton();
 
             MvxIoCProvider.Initialize();
 
             var preferences = AndroidApplication.MainContext.GetSharedPreferences("pockit", FileCreationMode.Private)!;
             var accessToken = preferences.GetString("access_token", null);
 
-            System.Diagnostics.Debug.Assert(accessToken != null, "accessToken != null");
+            Debug.Assert(accessToken != null, "accessToken != null");
 
-            MvxIoCProvider.Instance.RegisterSingleton(() => RestService.For<IGitHubApi>(new HttpClient
+            MvxIoCProvider.Instance.RegisterSingleton(() => RestService.For(new HttpClient
             {
                 BaseAddress = new Uri("https://api.github.com"),
                 DefaultRequestHeaders =
@@ -51,6 +42,10 @@ namespace Pockit
                     {"Authorization", $"Bearer {accessToken}"}
                 }
             }, RequestBuilder.ForType<IGitHubApi>()));
+
+            var graphQLClient = new GraphQLHttpClient("https://api.github.com/graphql", new SystemTextJsonSerializer());
+            graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
+            MvxIoCProvider.Instance.RegisterSingleton<IGraphQLClient>(graphQLClient);
 
             MvxIoCProvider.Instance.RegisterSingleton(() =>
                 RestService.For<IPockitAzureFunctionsApi>(AzureFunctionsConstants.BaseApiUri));

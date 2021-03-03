@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Pockit.Core.Constants;
 using Pockit.Core.Models;
-using Pockit.Core.Exceptions;
 using Xamarin.Essentials;
 
 namespace Pockit.Core.Services.Authorization

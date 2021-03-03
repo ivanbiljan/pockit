@@ -8,7 +8,6 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using Google.Android.Material.Snackbar;
 using MvvmCross;
 using MvvmCross.IoC;
@@ -16,8 +15,8 @@ using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views;
 using Pockit.Core.Constants;
-using Pockit.Core.Models;
 using Pockit.Core.Helpers;
+using Pockit.Core.Models;
 using Pockit.Core.Services.Authorization;
 using Pockit.ViewModels;
 using Xamarin.Essentials;
@@ -77,7 +76,7 @@ namespace Pockit.Activities
                 return;
             }
 
-            if (Intent.Scheme != OAuthWebFlowConstants.CallbackScheme) 
+            if (Intent.Scheme != OAuthWebFlowConstants.CallbackScheme)
             {
                 return;
             }
@@ -97,7 +96,7 @@ namespace Pockit.Activities
             editor.PutString("access_token", accessToken);
             editor.Commit();
             editor.Apply();
-            Log.Debug(nameof(LoginActivity), $"Login successful");
+            Log.Debug(nameof(LoginActivity), "Login successful");
         }
     }
 }

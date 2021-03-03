@@ -1,194 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:elevation="2dp">
+      <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp">
 
-      <com.google.android.material.card.MaterialCardView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:elevation="2dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp">
+        <com.google.android.material.card.MaterialCardView
+          app:strokeColor="#FF0000"
+          app:strokeWidth="1dp"
+          android:id="@+id/cardAvatarPlaceholder"
+          android:layout_width="72dp"
+          android:layout_height="72dp"
+          android:layout_margin="8dp"
+          app:cardCornerRadius="36dp">
 
-          <com.google.android.material.card.MaterialCardView
-            app:strokeColor="#FF0000"
-            app:strokeWidth="1dp"
-            android:id="@+id/cardAvatarPlaceholder"
+          <ImageView
+            android:id="@+id/imgAvatar"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="36dp">
-
-            <ImageView
-              android:id="@+id/imgAvatar"
-              android:layout_width="72dp"
-              android:layout_height="72dp"
-              android:layout_gravity="center"
-              android:scaleType="centerCrop"/>
-
-          </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/txtRealName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/cardAvatarPlaceholder"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:MvxBind="Text Model.Name"/>
-
-            <TextView
-                android:id="@+id/txtLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/cardAvatarPlaceholder"
-                android:layout_below="@id/txtRealName"
-                android:textSize="10sp"
-                app:MvxBind="Text Model.Login"/>
-
-            <TextView
-                android:id="@+id/txtCompany"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/cardAvatarPlaceholder"
-                android:layout_alignBottom="@id/cardAvatarPlaceholder"
-                android:textSize="12sp"
-                app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility"/>
-
-            <TextView
-                android:id="@+id/txtLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/cardAvatarPlaceholder"
-                android:layout_above="@id/txtCompany"
-                android:textSize="12sp"
-                app:MvxBind="Text Location; Visibility Location, Converter=NullVisibility"/>
-
-        </RelativeLayout>
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
 
         </com.google.android.material.card.MaterialCardView>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:inputType="number"
-                    app:MvxBind="Text Following"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Following"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_weight="1"
-                tools:ignore="MissingDimension">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:inputType="number"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stars"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:inputType="number"
-                    app:MvxBind="Text Followers"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Followers"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <Button
-          android:id="@+id/btnFollow"
-          android:layout_width="match_parent"
+        <TextView
+          android:id="@+id/txtRealName"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="5dp"
-          android:layout_marginBottom="8dp"
-          android:text="FOLLOW"/>
+          android:layout_toRightOf="@id/cardAvatarPlaceholder"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          app:MvxBind="Text Model.Name" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1024 contributions in the past year"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="128dp"/>
+          android:id="@+id/txtLogin"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/cardAvatarPlaceholder"
+          android:layout_below="@id/txtRealName"
+          android:textSize="10sp"
+          app:MvxBind="Text Model.Login" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <TextView
+          android:id="@+id/txtCompany"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/cardAvatarPlaceholder"
+          android:layout_alignBottom="@id/cardAvatarPlaceholder"
+          android:textSize="12sp"
+          app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility" />
 
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Pinned"/>
+        <TextView
+          android:id="@+id/txtLocation"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/cardAvatarPlaceholder"
+          android:layout_above="@id/txtCompany"
+          android:textSize="12sp"
+          app:MvxBind="Text Location; Visibility Location, Converter=NullVisibility" />
 
-          <HorizontalScrollView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+      </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/layoutPinnedRepos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"/>
+    </com.google.android.material.card.MaterialCardView>
 
-          </HorizontalScrollView>
 
-        </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="10dp"
+      android:paddingLeft="20dp"
+      android:paddingRight="20dp">
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:inputType="number"
+          app:MvxBind="Text Following" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Following" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1"
+        tools:ignore="MissingDimension">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:inputType="number" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Stars" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:inputType="number"
+          app:MvxBind="Text Followers" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Followers" />
+
+      </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+      android:id="@+id/btnFollow"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="8dp"
+      android:text="FOLLOW" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="1024 contributions in the past year" />
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="128dp" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pinned" />
+
+      <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+          android:id="@+id/layoutPinnedRepos"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="horizontal" />
+
+      </HorizontalScrollView>
+
+    </LinearLayout>
+
+  </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

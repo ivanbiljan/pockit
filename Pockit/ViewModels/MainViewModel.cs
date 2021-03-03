@@ -1,19 +1,9 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using MvvmCross.Commands;
 using MvvmCross.IoC;
 using MvvmCross.Navigation;
-using MvvmCross.Platforms.Android;
-using Pockit.Core;
 using Pockit.Core.Models;
+using Pockit.Core.Services.Users;
 
 namespace Pockit.ViewModels
 {
@@ -27,8 +17,8 @@ namespace Pockit.ViewModels
         }
 
         public IMvxCommand ShowProfileViewCommand => new MvxCommand(async () => {
-            var gitHubApi = MvxIoCProvider.Instance.GetSingleton<IGitHubApi>();
-            var authenticatedUser = await gitHubApi.GetAuthenticatedUser();
+            var gitHubApi = MvxIoCProvider.Instance.GetSingleton<IUserService>();
+            var authenticatedUser = await gitHubApi.GetAuthorizedUser();
             await _navigationService.Navigate<ProfileViewModel, GitHubUser>(authenticatedUser);
         });
     }

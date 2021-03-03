@@ -22,6 +22,6 @@
     app:menu="@menu/menu_bottomnavigation_main"
     app:labelVisibilityMode="labeled"
     app:itemIconTint="@menu/menu_bottomnavigation_selector"
-    app:itemTextColor="@menu/menu_bottomnavigation_selector"/>
+    app:itemTextColor="@menu/menu_bottomnavigation_selector" />
 
 </RelativeLayout>

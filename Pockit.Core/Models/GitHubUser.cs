@@ -1,37 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
 
-namespace Pockit.Core.Models 
+namespace Pockit.Core.Models
 {
-    public sealed class GitHubUser 
+    /// <summary>
+    ///     Represents an account on GitHub.
+    /// </summary>
+    public sealed class GitHubUser
     {
-        [JsonPropertyName("login")]
+        /// <summary>
+        ///     Gets the URI of the user's public avatar.
+        /// </summary>
+        public Uri AvatarUrl { get; set; }
+
+        /// <summary>
+        ///     Gets the bio.
+        /// </summary>
+        public string? Bio { get; set; }
+
+        /// <summary>
+        ///     Gets the company.
+        /// </summary>
+        public string? Company { get; set; }
+
+        /// <summary>
+        ///     Gets the registration date.
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        ///     Gets the email.
+        /// </summary>
+        public string? Email { get; set; }
+
+        /// <summary>
+        ///     Gets the followers connection.
+        /// </summary>
+        public SocialConnection Followers { get; set; }
+
+        /// <summary>
+        ///     Gets the following connection.
+        /// </summary>
+        public SocialConnection Following { get; set; }
+
+        /// <summary>
+        ///     Gets the username used to login.
+        /// </summary>
         public string Login { get; set; }
-        
-        [JsonPropertyName("avatar_url")]
-        public string AvatarUrl { get; set; }
-        
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-        
-        [JsonPropertyName("company")]
-        public string Company { get; set; }
-        
-        [JsonPropertyName("location")]
-        public string Location { get; set; }
-        
-        [JsonPropertyName("email")]
-        public string Email { get; set; }
-        
-        [JsonPropertyName("bio")]
-        public string Bio { get; set; }
-        
-        [JsonPropertyName("followers")]
-        public int Followers { get; set; }
-        
-        [JsonPropertyName("following")]
-        public int Following { get; set; }
+
+        public int TotalContributions { get; set; }
+    }
+
+    /// <summary>
+    ///     Represents a social connection for a GitHub account.
+    /// </summary>
+    public sealed class SocialConnection
+    {
+        public List<GitHubUser> Nodes { get; set; }
+
+        public int TotalCount { get; set; }
     }
 }
