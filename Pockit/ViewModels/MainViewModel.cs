@@ -1,4 +1,5 @@
 ﻿using System;
+using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.IoC;
 using MvvmCross.Navigation;
@@ -17,7 +18,7 @@ namespace Pockit.ViewModels
         }
 
         public IMvxCommand ShowProfileViewCommand => new MvxCommand(async () => {
-            var gitHubApi = MvxIoCProvider.Instance.GetSingleton<IUserService>();
+            var gitHubApi = Mvx.IoCProvider.GetSingleton<IUserService>();
             var authenticatedUser = await gitHubApi.GetAuthorizedUser();
             await _navigationService.Navigate<ProfileViewModel, GitHubUser>(authenticatedUser);
         });

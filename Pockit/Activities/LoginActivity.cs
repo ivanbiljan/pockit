@@ -56,7 +56,7 @@ namespace Pockit.Activities
                 return;
             }
 
-            var authorizationService = MvxIoCProvider.Instance.GetSingleton<IAuthorizationService>()!;
+            var authorizationService = Mvx.IoCProvider.GetSingleton<IAuthorizationService>()!;
             await authorizationService.RequestAuthorizationAsync(username, StringHelpers.GetRandomString(),
                 new Uri(OAuthWebFlowConstants.RedirectUri));
         }
