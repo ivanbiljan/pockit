@@ -48,7 +48,15 @@ namespace Pockit.Core.Models
         /// </summary>
         public string Login { get; set; }
 
+        /// <summary>
+        /// Gets the number of contributions in the past year.
+        /// </summary>
         public int TotalContributions { get; set; }
+        
+        /// <summary>
+        /// Gets the user's location.
+        /// </summary>
+        public string Location { get; set; }
     }
 
     /// <summary>

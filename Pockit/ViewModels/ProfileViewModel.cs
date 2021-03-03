@@ -7,15 +7,13 @@ namespace Pockit.ViewModels
 {
     public sealed class ProfileViewModel : ViewModelBase<GitHubUser>
     {
-        //public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
-        public string? Company => "Company";
+        public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
 
         public string Followers => StringHelpers.ToAbbreviatedString((ulong) Model.Followers.TotalCount);
 
         public string Following => StringHelpers.ToAbbreviatedString((ulong) Model.Following.TotalCount);
 
-        //public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
-        public string? Location => "Location";
+        public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
 
         public GitHubUser Model { get; private set; }
 

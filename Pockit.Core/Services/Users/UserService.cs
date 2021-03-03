@@ -27,6 +27,7 @@ query {
     bio
     company
     createdAt
+    location
     followers {
       totalCount
     }
