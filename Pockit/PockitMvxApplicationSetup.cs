@@ -24,24 +24,15 @@ namespace Pockit
         {
             // Set up service bindings
             CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
-            CreatableTypes(typeof(IGitHubApi).Assembly).EndingWith("Service").AsInterfaces()
+            CreatableTypes(typeof(Pockit.Core.Assembly).Assembly).EndingWith("Service").AsInterfaces()
                                                        .RegisterAsLazySingleton();
 
             MvxIoCProvider.Initialize();
 
             var preferences = AndroidApplication.MainContext.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
-            var accessToken = preferences.GetString("access_token", null);
+            var accessToken = preferences.GetString(PreferencesKeys.AccessToken, null);
 
             Debug.Assert(accessToken != null, "accessToken != null");
-
-            MvxIoCProvider.Instance.RegisterSingleton(() => RestService.For(new HttpClient
-            {
-                BaseAddress = new Uri("https://api.github.com"),
-                DefaultRequestHeaders =
-                {
-                    {"Authorization", $"Bearer {accessToken}"}
-                }
-            }, RequestBuilder.ForType<IGitHubApi>()));
 
             var graphQLClient = new GraphQLHttpClient("https://api.github.com/graphql", new SystemTextJsonSerializer());
             graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");

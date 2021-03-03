@@ -2,3 +2,8 @@
 
 [assembly: InternalsVisibleTo("Pockit")]
 [assembly: InternalsVisibleTo("Pockit.Functions")]
+
+namespace Pockit.Core
+{
+    internal sealed class Assembly { }
+}

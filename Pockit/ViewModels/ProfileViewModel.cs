@@ -7,13 +7,6 @@ namespace Pockit.ViewModels
 {
     public sealed class ProfileViewModel : ViewModelBase<GitHubUser>
     {
-        private readonly IGitHubApi _gitHubApi;
-
-        public ProfileViewModel(IGitHubApi gitHubApi)
-        {
-            _gitHubApi = gitHubApi ?? throw new ArgumentNullException(nameof(gitHubApi));
-        }
-
         //public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
         public string? Company => "Company";
 
