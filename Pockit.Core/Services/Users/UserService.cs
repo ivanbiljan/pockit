@@ -9,12 +9,10 @@ namespace Pockit.Core.Services.Users
     internal sealed class UserService : IUserService
     {
         private readonly IGraphQLClient _graphClient;
-        private readonly ILoginService _loginService;
 
-        public UserService(IGraphQLClient graphClient, ILoginService loginService)
+        public UserService(IGraphQLClient graphClient)
         {
             _graphClient = graphClient;
-            _loginService = loginService;
         }
 
         /// <inheritdoc />
