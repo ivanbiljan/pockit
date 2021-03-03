@@ -8,6 +8,7 @@ using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.SystemTextJson;
 using MvvmCross;
 using MvvmCross.IoC;
+using MvvmCross.Platforms.Android;
 using MvvmCross.ViewModels;
 using Pockit.Core;
 using Pockit.Core.Constants;
@@ -29,7 +30,8 @@ namespace Pockit
                                                        .RegisterAsLazySingleton();
 
 
-            var preferences = AndroidApplication.MainContext.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
+            var appContext = Mvx.IoCProvider.GetSingleton<IMvxAndroidGlobals>().ApplicationContext;
+            var preferences = appContext.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
             var accessToken = preferences.GetString(PreferencesKeys.AccessToken, null);
 
             Debug.Assert(accessToken != null, "accessToken != null");
