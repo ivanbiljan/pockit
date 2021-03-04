@@ -15,6 +15,8 @@ namespace Pockit.ViewModels
 
         public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
 
+        public string Contributions => $"{Model.Contributions.ContributionCalendar.TotalContributions} contributions in the past year";
+
         public GitHubUser Model { get; private set; }
 
         /// <inheritdoc />

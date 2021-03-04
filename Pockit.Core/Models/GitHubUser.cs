@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Pockit.Core.Models
 {
@@ -49,9 +50,10 @@ namespace Pockit.Core.Models
         public string Login { get; set; }
 
         /// <summary>
-        /// Gets the number of contributions in the past year.
+        /// Gets the user's contributions. This object aggregates issue, commit and pull request contributions.
         /// </summary>
-        public int TotalContributions { get; set; }
+        [JsonPropertyName("contributionsCollection")]
+        public ContributionsCollection Contributions { get; set; }
         
         /// <summary>
         /// Gets the user's location.
@@ -67,5 +69,15 @@ namespace Pockit.Core.Models
         public List<GitHubUser> Nodes { get; set; }
 
         public int TotalCount { get; set; }
+    }
+
+    public sealed class ContributionsCollection
+    {
+        public ContributionCalendar ContributionCalendar { get; set; }
+    }
+
+    public sealed class ContributionCalendar
+    {
+        public int TotalContributions { get; set; }
     }
 }
