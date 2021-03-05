@@ -13,74 +13,79 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <com.google.android.material.card.MaterialCardView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:elevation="2dp">
-      <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp">
-
         <com.google.android.material.card.MaterialCardView
-          app:strokeColor="@android:color/white"
-          app:strokeWidth="1dp"
-          android:id="@+id/cardAvatarPlaceholder"
-          android:layout_width="72dp"
-          android:layout_height="72dp"
-          android:layout_margin="8dp"
-          app:cardCornerRadius="36dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="2dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:padding="8dp">
 
-          <ImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop" />
+                <com.google.android.material.card.MaterialCardView
+                    app:strokeColor="@android:color/white"
+                    app:strokeWidth="1dp"
+                    android:id="@+id/cardAvatarPlaceholder"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    app:cardCornerRadius="36dp"
+                    android:layout_marginRight="8dp"
+                    android:minWidth="25px"
+                    android:minHeight="25px">
+
+                    <ImageView
+                        android:id="@+id/imgAvatar"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/txtRealName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/cardAvatarPlaceholder"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:MvxBind="Text Model.Name" />
+
+                <TextView
+                    android:id="@+id/txtLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@id/txtRealName"
+                    app:layout_constraintTop_toBottomOf="@id/txtRealName"
+                    android:textSize="10sp"
+                    app:MvxBind="Text Model.Login" />
+
+                <TextView
+                    android:id="@+id/txtLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/cardAvatarPlaceholder"
+                    app:layout_constraintTop_toBottomOf="@id/txtLogin"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:drawableLeft="@mipmap/ic_location_on"
+                    app:MvxBind="Text Model.Location; Visibility Model.Location, Converter=NullVisibility" />
+
+                <TextView
+                    android:id="@+id/txtCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/cardAvatarPlaceholder"
+                    app:layout_constraintTop_toBottomOf="@id/txtLocation"
+                    android:textSize="12sp"
+                    android:drawableLeft="@mipmap/ic_apartment"
+                    app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-          android:id="@+id/txtRealName"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_toRightOf="@id/cardAvatarPlaceholder"
-          android:textSize="18sp"
-          android:textStyle="bold"
-          app:MvxBind="Text Model.Name" />
-
-        <TextView
-          android:id="@+id/txtLogin"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_toRightOf="@id/cardAvatarPlaceholder"
-          android:layout_below="@id/txtRealName"
-          android:textSize="10sp"
-          app:MvxBind="Text Model.Login" />
-
-        <TextView
-          android:id="@+id/txtCompany"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_toRightOf="@id/cardAvatarPlaceholder"
-          android:layout_alignBottom="@id/cardAvatarPlaceholder"
-          android:textSize="12sp"
-          android:drawableLeft="@mipmap/ic_apartment"
-          app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility" />
-
-        <TextView
-          android:id="@+id/txtLocation"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_toRightOf="@id/cardAvatarPlaceholder"
-          android:layout_above="@id/txtCompany"
-          android:textSize="12sp"
-          android:drawableLeft="@mipmap/ic_location_on"
-          app:MvxBind="Text Model.Location; Visibility Location, Converter=NullVisibility" />
-
-      </RelativeLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 
 
     <LinearLayout

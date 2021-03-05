@@ -6,7 +6,7 @@ namespace Pockit.MvxConverters
 {
     public sealed class NullVisibilityValueConverter : MvxValueConverter<string, string>
     {
-        private const string VisibilityGone = "hidden";
+        private const string VisibilityGone = "gone";
         private const string VisibilityVisible = "visible";
 
         /// <inheritdoc />
