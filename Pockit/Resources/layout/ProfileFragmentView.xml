@@ -23,7 +23,7 @@
         android:layout_marginBottom="6dp">
 
         <com.google.android.material.card.MaterialCardView
-          app:strokeColor="#FF0000"
+          app:strokeColor="@android:color/white"
           app:strokeWidth="1dp"
           android:id="@+id/cardAvatarPlaceholder"
           android:layout_width="72dp"
@@ -65,6 +65,7 @@
           android:layout_toRightOf="@id/cardAvatarPlaceholder"
           android:layout_alignBottom="@id/cardAvatarPlaceholder"
           android:textSize="12sp"
+          android:drawableLeft="@mipmap/ic_apartment"
           app:MvxBind="Text Company; Visibility Company, Converter=NullVisibility" />
 
         <TextView
@@ -74,7 +75,8 @@
           android:layout_toRightOf="@id/cardAvatarPlaceholder"
           android:layout_above="@id/txtCompany"
           android:textSize="12sp"
-          app:MvxBind="Text Location; Visibility Location, Converter=NullVisibility" />
+          android:drawableLeft="@mipmap/ic_location_on"
+          app:MvxBind="Text Model.Location; Visibility Location, Converter=NullVisibility" />
 
       </RelativeLayout>
 
@@ -163,6 +165,7 @@
       android:layout_height="wrap_content"
       app:MvxBind="Text Contributions"/>
     <ImageView
+      android:id="@+id/imgContributionsGraph"
       android:layout_width="match_parent"
       android:layout_height="128dp" />
 

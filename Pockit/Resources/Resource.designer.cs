@@ -4761,8 +4761,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00b1
 			public const int action_mode_close_button = 2131624113;
 			
-			// aapt resource value: 0x7f0e013b
-			public const int action_settings = 2131624251;
+			// aapt resource value: 0x7f0e013c
+			public const int action_settings = 2131624252;
 			
 			// aapt resource value: 0x7f0e0113
 			public const int action_text = 2131624211;
@@ -4845,23 +4845,23 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00cb
 			public const int checkbox = 2131624139;
 			
-			// aapt resource value: 0x7f0e0131
-			public const int @checked = 2131624241;
+			// aapt resource value: 0x7f0e0132
+			public const int @checked = 2131624242;
 			
-			// aapt resource value: 0x7f0e0127
-			public const int chip = 2131624231;
-			
-			// aapt resource value: 0x7f0e012e
-			public const int chip1 = 2131624238;
+			// aapt resource value: 0x7f0e0128
+			public const int chip = 2131624232;
 			
 			// aapt resource value: 0x7f0e012f
-			public const int chip2 = 2131624239;
+			public const int chip1 = 2131624239;
 			
 			// aapt resource value: 0x7f0e0130
-			public const int chip3 = 2131624240;
+			public const int chip2 = 2131624240;
 			
-			// aapt resource value: 0x7f0e012d
-			public const int chip_group = 2131624237;
+			// aapt resource value: 0x7f0e0131
+			public const int chip3 = 2131624241;
+			
+			// aapt resource value: 0x7f0e012e
+			public const int chip_group = 2131624238;
 			
 			// aapt resource value: 0x7f0e011b
 			public const int chronometer = 2131624219;
@@ -5022,6 +5022,9 @@ namespace Pockit
 			// aapt resource value: 0x7f0e0120
 			public const int imgAvatar = 2131624224;
 			
+			// aapt resource value: 0x7f0e0126
+			public const int imgContributionsGraph = 2131624230;
+			
 			// aapt resource value: 0x7f0e0117
 			public const int info = 2131624215;
 			
@@ -5037,8 +5040,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00e9
 			public const int largeLabel = 2131624169;
 			
-			// aapt resource value: 0x7f0e0126
-			public const int layoutPinnedRepos = 2131624230;
+			// aapt resource value: 0x7f0e0127
+			public const int layoutPinnedRepos = 2131624231;
 			
 			// aapt resource value: 0x7f0e0071
 			public const int left = 2131624049;
@@ -5055,20 +5058,20 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00b6
 			public const int list_item = 2131624118;
 			
-			// aapt resource value: 0x7f0e0136
-			public const int masked = 2131624246;
-			
 			// aapt resource value: 0x7f0e0137
-			public const int menu_feed = 2131624247;
-			
-			// aapt resource value: 0x7f0e0139
-			public const int menu_notifications = 2131624249;
-			
-			// aapt resource value: 0x7f0e013a
-			public const int menu_profile = 2131624250;
+			public const int masked = 2131624247;
 			
 			// aapt resource value: 0x7f0e0138
-			public const int menu_search = 2131624248;
+			public const int menu_feed = 2131624248;
+			
+			// aapt resource value: 0x7f0e013a
+			public const int menu_notifications = 2131624250;
+			
+			// aapt resource value: 0x7f0e013b
+			public const int menu_profile = 2131624251;
+			
+			// aapt resource value: 0x7f0e0139
+			public const int menu_search = 2131624249;
 			
 			// aapt resource value: 0x7f0e00e1
 			public const int message = 2131624161;
@@ -5187,11 +5190,11 @@ namespace Pockit
 			// aapt resource value: 0x7f0e0114
 			public const int notification_main_column_container = 2131624212;
 			
-			// aapt resource value: 0x7f0e0134
-			public const int off = 2131624244;
+			// aapt resource value: 0x7f0e0135
+			public const int off = 2131624245;
 			
-			// aapt resource value: 0x7f0e0133
-			public const int on = 2131624243;
+			// aapt resource value: 0x7f0e0134
+			public const int on = 2131624244;
 			
 			// aapt resource value: 0x7f0e0090
 			public const int outline = 2131624080;
@@ -5388,17 +5391,17 @@ namespace Pockit
 			// aapt resource value: 0x7f0e004c
 			public const int tag_unhandled_key_listeners = 2131624012;
 			
-			// aapt resource value: 0x7f0e0129
-			public const int test_checkbox_android_button_tint = 2131624233;
-			
 			// aapt resource value: 0x7f0e012a
-			public const int test_checkbox_app_button_tint = 2131624234;
+			public const int test_checkbox_android_button_tint = 2131624234;
 			
 			// aapt resource value: 0x7f0e012b
-			public const int test_radiobutton_android_button_tint = 2131624235;
+			public const int test_checkbox_app_button_tint = 2131624235;
 			
 			// aapt resource value: 0x7f0e012c
-			public const int test_radiobutton_app_button_tint = 2131624236;
+			public const int test_radiobutton_android_button_tint = 2131624236;
+			
+			// aapt resource value: 0x7f0e012d
+			public const int test_radiobutton_app_button_tint = 2131624237;
 			
 			// aapt resource value: 0x7f0e004d
 			public const int text = 2131624013;
@@ -5493,8 +5496,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e0121
 			public const int txtRealName = 2131624225;
 			
-			// aapt resource value: 0x7f0e0132
-			public const int @unchecked = 2131624242;
+			// aapt resource value: 0x7f0e0133
+			public const int @unchecked = 2131624243;
 			
 			// aapt resource value: 0x7f0e0099
 			public const int uniform = 2131624089;
@@ -5511,8 +5514,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e000d
 			public const int view_offset_helper = 2131623949;
 			
-			// aapt resource value: 0x7f0e0135
-			public const int visible = 2131624245;
+			// aapt resource value: 0x7f0e0136
+			public const int visible = 2131624246;
 			
 			// aapt resource value: 0x7f0e00a7
 			public const int withText = 2131624103;
@@ -5523,8 +5526,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e009a
 			public const int wrap_content = 2131624090;
 			
-			// aapt resource value: 0x7f0e0128
-			public const int zero_corner_chip = 2131624232;
+			// aapt resource value: 0x7f0e0129
+			public const int zero_corner_chip = 2131624233;
 			
 			static Id()
 			{
@@ -6000,25 +6003,31 @@ namespace Pockit
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int ic_launcher = 2130903040;
+			public const int ic_apartment = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int ic_launcher_foreground = 2130903041;
+			public const int ic_launcher = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ic_launcher_round = 2130903042;
+			public const int ic_launcher_foreground = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ic_notifications = 2130903043;
+			public const int ic_launcher_round = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ic_person = 2130903044;
+			public const int ic_location_on = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ic_public = 2130903045;
+			public const int ic_notifications = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int ic_search = 2130903046;
+			public const int ic_person = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int ic_public = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int ic_search = 2130903048;
 			
 			static Mipmap()
 			{

@@ -32,6 +32,7 @@ query {
     following {
       totalCount
     }
+    name
     login
     contributionsCollection {
       contributionCalendar {

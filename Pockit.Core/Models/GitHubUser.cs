@@ -59,6 +59,11 @@ namespace Pockit.Core.Models
         /// Gets the user's location.
         /// </summary>
         public string Location { get; set; }
+        
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        public string Name { get; set; }
     }
 
     /// <summary>

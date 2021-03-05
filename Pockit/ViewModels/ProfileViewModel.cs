@@ -13,8 +13,6 @@ namespace Pockit.ViewModels
 
         public string Following => StringHelpers.ToAbbreviatedString((ulong) Model.Following.TotalCount);
 
-        public string? Location => string.IsNullOrWhiteSpace(Model.Location) ? null : $"Location: {Model.Location}";
-
         public string Contributions => $"{Model.Contributions.ContributionCalendar.TotalContributions} contributions in the past year";
 
         public GitHubUser Model { get; private set; }
