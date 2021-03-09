@@ -5,7 +5,7 @@ using Pockit.Core.Models;
 
 namespace Pockit.ViewModels
 {
-    public sealed class ProfileViewModel : ViewModelBase<GitHubUser>
+    public sealed class ProfileViewModel : ViewModelBase<User>
     {
         public string? Company => string.IsNullOrWhiteSpace(Model.Company) ? null : $"Company: {Model.Company}";
 
@@ -15,10 +15,10 @@ namespace Pockit.ViewModels
 
         public string Contributions => $"{Model.Contributions.ContributionCalendar.TotalContributions} contributions in the past year";
 
-        public GitHubUser Model { get; private set; }
+        public User Model { get; private set; }
 
         /// <inheritdoc />
-        public override void Prepare(GitHubUser parameter)
+        public override void Prepare(User parameter)
         {
             Model = parameter;
         }

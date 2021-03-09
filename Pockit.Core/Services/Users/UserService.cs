@@ -16,7 +16,7 @@ namespace Pockit.Core.Services.Users
         }
 
         /// <inheritdoc />
-        public async Task<GitHubUser> GetAuthorizedUser()
+        public async Task<User> GetAuthorizedUser()
         {
             const string query = @"
 query { 
@@ -43,7 +43,7 @@ query {
 }";
 
             var request = new GraphQLHttpRequest(query);
-            var response = await _graphClient.SendQueryAsync(request, () => new {viewer = new GitHubUser()});
+            var response = await _graphClient.SendQueryAsync(request, () => new {viewer = new User()});
             return response.Data.viewer;
         }
     }

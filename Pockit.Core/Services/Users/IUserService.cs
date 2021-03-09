@@ -5,6 +5,6 @@ namespace Pockit.Core.Services.Users
 {
     public interface IUserService
     {
-        Task<GitHubUser> GetAuthorizedUser();
+        Task<User> GetAuthorizedUser();
     }
 }

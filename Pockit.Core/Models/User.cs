@@ -7,7 +7,7 @@ namespace Pockit.Core.Models
     /// <summary>
     ///     Represents an account on GitHub.
     /// </summary>
-    public sealed class GitHubUser
+    public sealed class User
     {
         /// <summary>
         ///     Gets the URI of the user's public avatar.
@@ -71,7 +71,7 @@ namespace Pockit.Core.Models
     /// </summary>
     public sealed class SocialConnection
     {
-        public List<GitHubUser> Nodes { get; set; }
+        public List<User> Nodes { get; set; }
 
         public int TotalCount { get; set; }
     }
