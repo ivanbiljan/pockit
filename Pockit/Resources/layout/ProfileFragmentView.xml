@@ -165,14 +165,14 @@
       android:layout_marginBottom="8dp"
       android:text="FOLLOW" />
 
-    <TextView
+<!--    <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:MvxBind="Text Contributions"/>
     <ImageView
       android:id="@+id/imgContributionsGraph"
       android:layout_width="match_parent"
-      android:layout_height="128dp" />
+      android:layout_height="128dp" />-->
 
     <LinearLayout
       android:layout_width="match_parent"
