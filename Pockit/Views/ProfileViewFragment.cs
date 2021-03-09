@@ -22,7 +22,6 @@ namespace Pockit.Views
     public sealed class ProfileViewFragment : MvxFragment<ProfileViewModel>
     {
         private ImageView _avatarView;
-        private ImageView _contributionsView;
 
         /// <inheritdoc />
         public override async void OnActivityCreated(Bundle savedInstanceState)
@@ -31,10 +30,7 @@ namespace Pockit.Views
 
             var httpClient = new HttpClient(new HttpClientHandler());
             await using var avatarStream = await httpClient.GetStreamAsync(ViewModel.Model.AvatarUrl);
-            await using var contributionsGraphStream =
-                await httpClient.GetStreamAsync($"https://github.com/users/{ViewModel.Model.Login}/contributions");
             _avatarView.SetImageBitmap(await BitmapFactory.DecodeStreamAsync(avatarStream));
-            _contributionsView.SetImageBitmap(await BitmapFactory.DecodeStreamAsync(contributionsGraphStream));
         }
 
         /// <inheritdoc />
@@ -46,9 +42,6 @@ namespace Pockit.Views
 
             _avatarView = view.FindViewById<ImageView>(Resource.Id.imgAvatar)!;
             _avatarView.SetLayerType(LayerType.Software, null);
-
-            _contributionsView = view.FindViewById<ImageView>(Resource.Id.imgContributionsGraph)!;
-            _contributionsView.SetLayerType(LayerType.Software, null);
 
             return view;
         }
