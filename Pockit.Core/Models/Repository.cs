@@ -7,7 +7,7 @@ namespace Pockit.Core.Models
     /// <summary>
     /// Represents a GitHub repository.
     /// </summary>
-    public sealed class Repository : Node
+    public sealed class Repository : Node, IStarrable
     {
         /// <summary>
         /// Gets the <see cref="DateTime"/> object that represents when the repository was created.
@@ -63,5 +63,13 @@ namespace Pockit.Core.Models
         /// Gets the parent repository. This property is <see langword="null"/> unless the current repository is a fork.
         /// </summary>
         public Repository? Parent { get; set; }
+        
+        /// <summary>
+        /// Gets the primary (most prevalent) language.
+        /// </summary>
+        public Language PrimaryLanguage { get; set; }
+
+        /// <inheritdoc />
+        public int StargazerCount { get; set; }
     }
 }
