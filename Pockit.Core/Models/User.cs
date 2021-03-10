@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Text.Json.Serialization;
 using Pockit.Core.Models.Pagination;
 
@@ -38,12 +39,12 @@ namespace Pockit.Core.Models
         /// <summary>
         ///     Gets the followers connection.
         /// </summary>
-        public IConnection<User> Followers { get; set; }
+        public Connection<User> Followers { get; set; }
 
         /// <summary>
         ///     Gets the following connection.
         /// </summary>
-        public SocialConnection Following { get; set; }
+        public Connection<User> Following { get; set; }
 
         /// <summary>
         ///     Gets the username used to login.
@@ -65,16 +66,6 @@ namespace Pockit.Core.Models
         /// Gets the name.
         /// </summary>
         public string Name { get; set; }
-    }
-
-    /// <summary>
-    ///     Represents a social connection for a GitHub account.
-    /// </summary>
-    public sealed class SocialConnection
-    {
-        public List<User> Nodes { get; set; }
-
-        public int TotalCount { get; set; }
     }
 
     public sealed class ContributionsCollection
