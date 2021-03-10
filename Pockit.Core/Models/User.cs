@@ -67,14 +67,4 @@ namespace Pockit.Core.Models
         /// </summary>
         public string Name { get; set; }
     }
-
-    public sealed class ContributionsCollection
-    {
-        public ContributionCalendar ContributionCalendar { get; set; }
-    }
-
-    public sealed class ContributionCalendar
-    {
-        public int TotalContributions { get; set; }
-    }
 }
