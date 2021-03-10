@@ -8,6 +8,30 @@ namespace Pockit.Core.Services.Users
 {
     internal sealed class UserService : IUserService
     {
+        private static string GetProfileInfoQuery(string username = null) => @$"
+query {{ 
+  {(username is null ? "viewer" : $"user(login: \"{username}\"")} {{
+    avatarUrl
+    bio
+    company
+    createdAt
+    location
+    followers {{
+      totalCount
+    }}
+    following {{
+      totalCount
+    }}
+    name
+    login
+    contributionsCollection {{
+      contributionCalendar {{
+        totalContributions
+      }}
+    }}
+  }}
+}}";
+
         private readonly IGraphQLClient _graphClient;
 
         public UserService(IGraphQLClient graphClient)
@@ -16,33 +40,9 @@ namespace Pockit.Core.Services.Users
         }
 
         /// <inheritdoc />
-        public async Task<User> GetAuthorizedUser()
+        public async Task<User> GetProfileInformation(string? username = null)
         {
-            const string query = @"
-query { 
-  viewer { 
-    avatarUrl
-    bio
-    company
-    createdAt
-    location
-    followers {
-      totalCount
-    }
-    following {
-      totalCount
-    }
-    name
-    login
-    contributionsCollection {
-      contributionCalendar {
-        totalContributions
-      }
-    }
-  }
-}";
-
-            var request = new GraphQLHttpRequest(query);
+            var request = new GraphQLHttpRequest(GetProfileInfoQuery(username));
             var response = await _graphClient.SendQueryAsync(request, () => new {viewer = new User()});
             return response.Data.viewer;
         }

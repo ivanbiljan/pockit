@@ -5,6 +5,6 @@ namespace Pockit.Core.Services.Users
 {
     public interface IUserService
     {
-        Task<User> GetAuthorizedUser();
+        Task<User> GetProfileInformation(string? username = null);
     }
 }

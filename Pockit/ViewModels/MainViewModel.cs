@@ -19,7 +19,7 @@ namespace Pockit.ViewModels
 
         public IMvxCommand ShowProfileViewCommand => new MvxCommand(async () => {
             var gitHubApi = Mvx.IoCProvider.GetSingleton<IUserService>();
-            var authenticatedUser = await gitHubApi.GetAuthorizedUser();
+            var authenticatedUser = await gitHubApi.GetProfileInformation(null);
             await _navigationService.Navigate<ProfileViewModel, User>(authenticatedUser);
         });
     }
