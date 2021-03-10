@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Pockit.Core.Models.Pagination;
 
 namespace Pockit.Core.Models
 {
@@ -37,7 +38,7 @@ namespace Pockit.Core.Models
         /// <summary>
         ///     Gets the followers connection.
         /// </summary>
-        public SocialConnection Followers { get; set; }
+        public IConnection<User> Followers { get; set; }
 
         /// <summary>
         ///     Gets the following connection.
