@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using GraphQL;
 using GraphQL.Client.Abstractions;
 using GraphQL.Client.Http;
 using GraphQL.Types;
@@ -42,9 +43,13 @@ query {{
         /// <inheritdoc />
         public async Task<User> GetProfileInformation(string? username = null)
         {
-            var request = new GraphQLHttpRequest(GetProfileInfoQuery(username));
-            var response = await _graphClient.SendQueryAsync(request, () => new {viewer = new User()});
-            return response.Data.viewer;
+            var request = new GraphQLRequest(GetProfileInfoQuery(username));
+            if (username is null)
+            {
+                return (await _graphClient.SendQueryAsync(request, () => new {viewer = new User()})).Data.viewer;
+            }
+
+            return (await _graphClient.SendQueryAsync(request, () => new {user = new User()})).Data.user;
         }
     }
 }
