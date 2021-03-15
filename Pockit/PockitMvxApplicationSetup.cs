@@ -29,6 +29,7 @@ namespace Pockit
             CreatableTypes(typeof(Pockit.Core.Assembly).Assembly).EndingWith("Service").AsInterfaces()
                                                        .RegisterAsLazySingleton();
             
+            AddHttpClient();
             AddGraphQLClient();
 
             Mvx.IoCProvider.RegisterSingleton(() =>
@@ -49,6 +50,11 @@ namespace Pockit
             var graphQLClient = new GraphQLHttpClient("https://api.github.com/graphql", new SystemTextJsonSerializer());
             graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
             Mvx.IoCProvider.RegisterSingleton<IGraphQLClient>(graphQLClient);
+        }
+
+        private void AddHttpClient()
+        {
+            Mvx.IoCProvider.RegisterSingleton(new HttpClient());
         }
     }
 }
