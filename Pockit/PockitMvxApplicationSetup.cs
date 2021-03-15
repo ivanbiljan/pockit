@@ -28,8 +28,18 @@ namespace Pockit
             CreatableTypes().EndingWith("Service").AsInterfaces().RegisterAsLazySingleton();
             CreatableTypes(typeof(Pockit.Core.Assembly).Assembly).EndingWith("Service").AsInterfaces()
                                                        .RegisterAsLazySingleton();
+            
+            AddGraphQLClient();
 
+            Mvx.IoCProvider.RegisterSingleton(() =>
+                RestService.For<IPockitAzureFunctionsApi>(AzureFunctionsConstants.BaseApiUri));
 
+            // Register custom app start
+            RegisterCustomAppStart<PockitMvxAppStart>();
+        }
+
+        private void AddGraphQLClient()
+        {
             var appContext = Mvx.IoCProvider.GetSingleton<IMvxAndroidGlobals>().ApplicationContext;
             var preferences = appContext.GetSharedPreferences(PreferencesKeys.PreferencesFile, FileCreationMode.Private)!;
             var accessToken = preferences.GetString(PreferencesKeys.AccessToken, null);
@@ -39,12 +49,6 @@ namespace Pockit
             var graphQLClient = new GraphQLHttpClient("https://api.github.com/graphql", new SystemTextJsonSerializer());
             graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
             Mvx.IoCProvider.RegisterSingleton<IGraphQLClient>(graphQLClient);
-
-            Mvx.IoCProvider.RegisterSingleton(() =>
-                RestService.For<IPockitAzureFunctionsApi>(AzureFunctionsConstants.BaseApiUri));
-
-            // Register custom app start
-            RegisterCustomAppStart<PockitMvxAppStart>();
         }
     }
 }
