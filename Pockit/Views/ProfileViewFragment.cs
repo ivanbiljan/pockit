@@ -21,37 +21,12 @@ namespace Pockit.Views
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.fragment_content)]
     public sealed class ProfileViewFragment : MvxFragment<ProfileViewModel>
     {
-        private ImageView _avatarView = null!;
-        private HttpClient _httpClient;
-
-        public ProfileViewFragment()
-        {
-            
-        }
-        
-        public ProfileViewFragment(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
-
-        /// <inheritdoc />
-        public override async void OnActivityCreated(Bundle savedInstanceState)
-        {
-            OnCreate(savedInstanceState);
-
-            await using var avatarStream = await _httpClient.GetStreamAsync(ViewModel.Model.AvatarUrl);
-            _avatarView.SetImageBitmap(await BitmapFactory.DecodeStreamAsync(avatarStream));
-        }
-
         /// <inheritdoc />
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            var view = this.BindingInflate(Resource.Layout.RepositoryFragmentView, null);
-
-            _avatarView = view.FindViewById<ImageView>(Resource.Id.imgAvatar)!;
-            _avatarView.SetLayerType(LayerType.Software, null);
+            var view = this.BindingInflate(Resource.Layout.ProfileFragmentView, null);
 
             return view;
         }

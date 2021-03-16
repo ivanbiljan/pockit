@@ -34,12 +34,13 @@
                     android:minWidth="25px"
                     android:minHeight="25px">
 
-                    <ImageView
+                    <FFImageLoading.Cross.MvxCachedImageView
                         android:id="@+id/imgAvatar"
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_gravity="center"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="centerCrop" 
+                        app:MvxBind="ImagePath Model.AvatarUrl"/>
 
                 </com.google.android.material.card.MaterialCardView>
 
