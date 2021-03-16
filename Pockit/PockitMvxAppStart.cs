@@ -25,7 +25,7 @@ namespace Pockit
             _loginService = loginService;
         }
 
-        protected override Task NavigateToFirstViewModel(object hint = null)
+        protected override Task NavigateToFirstViewModel(object? hint = null)
         {
             if (!_loginService.TryGetLogin(out var token))
             {

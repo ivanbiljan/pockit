@@ -23,6 +23,11 @@ namespace Pockit.Views
     {
         private ImageView _avatarView = null!;
         private HttpClient _httpClient;
+
+        public ProfileViewFragment()
+        {
+            
+        }
         
         public ProfileViewFragment(HttpClient httpClient)
         {
@@ -43,7 +48,7 @@ namespace Pockit.Views
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            var view = this.BindingInflate(Resource.Layout.ProfileFragmentView, null);
+            var view = this.BindingInflate(Resource.Layout.RepositoryFragmentView, null);
 
             _avatarView = view.FindViewById<ImageView>(Resource.Id.imgAvatar)!;
             _avatarView.SetLayerType(LayerType.Software, null);
