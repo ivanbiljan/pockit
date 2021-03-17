@@ -4932,8 +4932,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00be
 			public const int action_mode_close_button = 2131624126;
 			
-			// aapt resource value: 0x7f0e0148
-			public const int action_settings = 2131624264;
+			// aapt resource value: 0x7f0e014a
+			public const int action_settings = 2131624266;
 			
 			// aapt resource value: 0x7f0e0120
 			public const int action_text = 2131624224;
@@ -5022,23 +5022,23 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00d8
 			public const int checkbox = 2131624152;
 			
-			// aapt resource value: 0x7f0e013e
-			public const int @checked = 2131624254;
+			// aapt resource value: 0x7f0e0140
+			public const int @checked = 2131624256;
 			
-			// aapt resource value: 0x7f0e0134
-			public const int chip = 2131624244;
-			
-			// aapt resource value: 0x7f0e013b
-			public const int chip1 = 2131624251;
-			
-			// aapt resource value: 0x7f0e013c
-			public const int chip2 = 2131624252;
+			// aapt resource value: 0x7f0e0136
+			public const int chip = 2131624246;
 			
 			// aapt resource value: 0x7f0e013d
-			public const int chip3 = 2131624253;
+			public const int chip1 = 2131624253;
 			
-			// aapt resource value: 0x7f0e013a
-			public const int chip_group = 2131624250;
+			// aapt resource value: 0x7f0e013e
+			public const int chip2 = 2131624254;
+			
+			// aapt resource value: 0x7f0e013f
+			public const int chip3 = 2131624255;
+			
+			// aapt resource value: 0x7f0e013c
+			public const int chip_group = 2131624252;
 			
 			// aapt resource value: 0x7f0e0128
 			public const int chronometer = 2131624232;
@@ -5244,20 +5244,20 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00c3
 			public const int list_item = 2131624131;
 			
-			// aapt resource value: 0x7f0e0143
-			public const int masked = 2131624259;
-			
-			// aapt resource value: 0x7f0e0144
-			public const int menu_feed = 2131624260;
+			// aapt resource value: 0x7f0e0145
+			public const int masked = 2131624261;
 			
 			// aapt resource value: 0x7f0e0146
-			public const int menu_notifications = 2131624262;
+			public const int menu_feed = 2131624262;
+			
+			// aapt resource value: 0x7f0e0148
+			public const int menu_notifications = 2131624264;
+			
+			// aapt resource value: 0x7f0e0149
+			public const int menu_profile = 2131624265;
 			
 			// aapt resource value: 0x7f0e0147
-			public const int menu_profile = 2131624263;
-			
-			// aapt resource value: 0x7f0e0145
-			public const int menu_search = 2131624261;
+			public const int menu_search = 2131624263;
 			
 			// aapt resource value: 0x7f0e00ee
 			public const int message = 2131624174;
@@ -5376,11 +5376,11 @@ namespace Pockit
 			// aapt resource value: 0x7f0e0121
 			public const int notification_main_column_container = 2131624225;
 			
-			// aapt resource value: 0x7f0e0141
-			public const int off = 2131624257;
+			// aapt resource value: 0x7f0e0143
+			public const int off = 2131624259;
 			
-			// aapt resource value: 0x7f0e0140
-			public const int on = 2131624256;
+			// aapt resource value: 0x7f0e0142
+			public const int on = 2131624258;
 			
 			// aapt resource value: 0x7f0e009d
 			public const int outline = 2131624093;
@@ -5420,6 +5420,12 @@ namespace Pockit
 			
 			// aapt resource value: 0x7f0e00d9
 			public const int radio = 2131624153;
+			
+			// aapt resource value: 0x7f0e0134
+			public const int repositoryTabLayout = 2131624244;
+			
+			// aapt resource value: 0x7f0e0135
+			public const int repositoryactivity_fragmentcontent = 2131624245;
 			
 			// aapt resource value: 0x7f0e0057
 			public const int right = 2131624023;
@@ -5595,17 +5601,17 @@ namespace Pockit
 			// aapt resource value: 0x7f0e004c
 			public const int tag_unhandled_key_listeners = 2131624012;
 			
-			// aapt resource value: 0x7f0e0136
-			public const int test_checkbox_android_button_tint = 2131624246;
-			
-			// aapt resource value: 0x7f0e0137
-			public const int test_checkbox_app_button_tint = 2131624247;
-			
 			// aapt resource value: 0x7f0e0138
-			public const int test_radiobutton_android_button_tint = 2131624248;
+			public const int test_checkbox_android_button_tint = 2131624248;
 			
 			// aapt resource value: 0x7f0e0139
-			public const int test_radiobutton_app_button_tint = 2131624249;
+			public const int test_checkbox_app_button_tint = 2131624249;
+			
+			// aapt resource value: 0x7f0e013a
+			public const int test_radiobutton_android_button_tint = 2131624250;
+			
+			// aapt resource value: 0x7f0e013b
+			public const int test_radiobutton_app_button_tint = 2131624251;
 			
 			// aapt resource value: 0x7f0e004d
 			public const int text = 2131624013;
@@ -5700,8 +5706,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e012e
 			public const int txtRealName = 2131624238;
 			
-			// aapt resource value: 0x7f0e013f
-			public const int @unchecked = 2131624255;
+			// aapt resource value: 0x7f0e0141
+			public const int @unchecked = 2131624257;
 			
 			// aapt resource value: 0x7f0e00a6
 			public const int uniform = 2131624102;
@@ -5718,8 +5724,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e000d
 			public const int view_offset_helper = 2131623949;
 			
-			// aapt resource value: 0x7f0e0142
-			public const int visible = 2131624258;
+			// aapt resource value: 0x7f0e0144
+			public const int visible = 2131624260;
 			
 			// aapt resource value: 0x7f0e00b4
 			public const int withText = 2131624116;
@@ -5733,8 +5739,8 @@ namespace Pockit
 			// aapt resource value: 0x7f0e00a7
 			public const int wrap_content = 2131624103;
 			
-			// aapt resource value: 0x7f0e0135
-			public const int zero_corner_chip = 2131624245;
+			// aapt resource value: 0x7f0e0137
+			public const int zero_corner_chip = 2131624247;
 			
 			static Id()
 			{
@@ -6124,61 +6130,64 @@ namespace Pockit
 			public const int ProfileFragmentView = 2130968659;
 			
 			// aapt resource value: 0x7f040054
-			public const int RepositoryFragmentView = 2130968660;
+			public const int RepositoryActivityView = 2130968660;
 			
 			// aapt resource value: 0x7f040055
-			public const int select_dialog_item_material = 2130968661;
+			public const int RepositoryFragmentView = 2130968661;
 			
 			// aapt resource value: 0x7f040056
-			public const int select_dialog_multichoice_material = 2130968662;
+			public const int select_dialog_item_material = 2130968662;
 			
 			// aapt resource value: 0x7f040057
-			public const int select_dialog_singlechoice_material = 2130968663;
+			public const int select_dialog_multichoice_material = 2130968663;
 			
 			// aapt resource value: 0x7f040058
-			public const int support_simple_spinner_dropdown_item = 2130968664;
+			public const int select_dialog_singlechoice_material = 2130968664;
 			
 			// aapt resource value: 0x7f040059
-			public const int test_action_chip = 2130968665;
+			public const int support_simple_spinner_dropdown_item = 2130968665;
 			
 			// aapt resource value: 0x7f04005a
-			public const int test_chip_zero_corner_radius = 2130968666;
+			public const int test_action_chip = 2130968666;
 			
 			// aapt resource value: 0x7f04005b
-			public const int test_design_checkbox = 2130968667;
+			public const int test_chip_zero_corner_radius = 2130968667;
 			
 			// aapt resource value: 0x7f04005c
-			public const int test_design_radiobutton = 2130968668;
+			public const int test_design_checkbox = 2130968668;
 			
 			// aapt resource value: 0x7f04005d
-			public const int test_reflow_chipgroup = 2130968669;
+			public const int test_design_radiobutton = 2130968669;
 			
 			// aapt resource value: 0x7f04005e
-			public const int test_toolbar = 2130968670;
+			public const int test_reflow_chipgroup = 2130968670;
 			
 			// aapt resource value: 0x7f04005f
-			public const int test_toolbar_custom_background = 2130968671;
+			public const int test_toolbar = 2130968671;
 			
 			// aapt resource value: 0x7f040060
-			public const int test_toolbar_elevation = 2130968672;
+			public const int test_toolbar_custom_background = 2130968672;
 			
 			// aapt resource value: 0x7f040061
-			public const int test_toolbar_surface = 2130968673;
+			public const int test_toolbar_elevation = 2130968673;
 			
 			// aapt resource value: 0x7f040062
-			public const int text_view_with_line_height_from_appearance = 2130968674;
+			public const int test_toolbar_surface = 2130968674;
 			
 			// aapt resource value: 0x7f040063
-			public const int text_view_with_line_height_from_layout = 2130968675;
+			public const int text_view_with_line_height_from_appearance = 2130968675;
 			
 			// aapt resource value: 0x7f040064
-			public const int text_view_with_line_height_from_style = 2130968676;
+			public const int text_view_with_line_height_from_layout = 2130968676;
 			
 			// aapt resource value: 0x7f040065
-			public const int text_view_with_theme_line_height = 2130968677;
+			public const int text_view_with_line_height_from_style = 2130968677;
 			
 			// aapt resource value: 0x7f040066
-			public const int text_view_without_line_height = 2130968678;
+			public const int text_view_with_theme_line_height = 2130968678;
+			
+			// aapt resource value: 0x7f040067
+			public const int text_view_without_line_height = 2130968679;
 			
 			static Layout()
 			{
